@@ -1,0 +1,14 @@
+#ifndef ACTION_HH
+#define ACTION_HH
+
+#include "G4VActionUserInitialization.hh"
+
+class MyActionInitialization : public G4VActionUserInitialization
+{
+ public:
+  MyActionInitialization();
+  ~MyActionInitialization();
+
+  virtual void Build() const;
+};
+#endif

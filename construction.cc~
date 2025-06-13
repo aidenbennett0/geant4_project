@@ -1,0 +1,27 @@
+#include "construction.hh"
+
+MyDetectorConstruction::MyDetectorConstruction()
+{}
+
+MyDetectorConstruction::~MyDetectorConstruction()
+{}
+
+G4VPhysicalVolume *MyDetectorConstruction::Construct();
+{
+    G4NistManager *nist = G4NistManager::Instance();
+    G4Material *worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
+    
+    //
+    //G4Box("name", 0.5 * length, 0.5 * height, 0.5 * depth) ('*m' tells G4 to use meters (mm is default))
+    //
+    G4Box *solidWorld = new G4Box("solidWorld", 0.5*m, 0.5*m, 0.5*m);
+
+    G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld, worldMaterial, "logicWorld");
+
+    //
+    // G4PVPlacement(rotation, G4ThreeVector(x, y, x), logicVolume, "name", place in mother volume?, boolean?, copy number, check for overlaps?)
+    //
+    G4VPhysicalVolume *physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "physWorld", 0, false, 0, true);
+
+    return physWorld;
+}
