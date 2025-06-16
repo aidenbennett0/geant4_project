@@ -28,14 +28,16 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     // GIVES COPY NUMBER TO DETECTOR THAT PHOTON ENTERS
      G4int copyNo = touchable->GetCopyNumber();
 
-     G4cout << "Copy number: " << copyNo << G4endl;
+    // G4cout << "Copy number: " << copyNo << G4endl;
 
      G4VPhysicalVolume *physVol = touchable->GetVolume();
      G4ThreeVector posDetector = physVol->GetTranslation();
 
+     #ifndef G4MULTITHREADED
      // GIVES POSITION OF DETECTOR FIRED
      G4cout << "Detector Position: " << posDetector << G4endl;
-
+     #endif
+     
      G4int evt = G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
 
      G4AnalysisManager *man = G4AnalysisManager::Instance();

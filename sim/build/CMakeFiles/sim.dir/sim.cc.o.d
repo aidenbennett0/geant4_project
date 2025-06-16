@@ -91,6 +91,7 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /usr/include/c++/4.8.2/bits/basic_ios.tcc \
  /usr/include/c++/4.8.2/bits/ostream.tcc /usr/include/c++/4.8.2/istream \
  /usr/include/c++/4.8.2/bits/istream.tcc \
+ /opt/geant4.10.04.p02/include/Geant4/G4MTRunManager.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4RunManager.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4RunManagerKernel.hh \
  /opt/geant4.10.04.p02/include/Geant4/globals.hh \
@@ -404,6 +405,13 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/G4VUserEventInformation.hh \
  /usr/include/c++/4.8.2/list /usr/include/c++/4.8.2/bits/stl_list.h \
  /usr/include/c++/4.8.2/bits/list.tcc \
+ /opt/geant4.10.04.p02/include/Geant4/G4RNGHelper.hh \
+ /usr/include/c++/4.8.2/queue /usr/include/c++/4.8.2/deque \
+ /usr/include/c++/4.8.2/bits/stl_deque.h \
+ /usr/include/c++/4.8.2/bits/deque.tcc \
+ /usr/include/c++/4.8.2/bits/stl_queue.h \
+ /opt/geant4.10.04.p02/include/Geant4/G4MTBarrier.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4RunManager.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4UIExecutive.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4VUIshell.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4VisManager.hh \

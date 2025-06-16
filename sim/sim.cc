@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "G4MTRunManager.hh"
 #include "G4RunManager.hh"
 #include "G4UIExecutive.hh"
 #include "G4VisManager.hh"
@@ -12,17 +13,20 @@
 
 int main(int argc, char** argv)
 {
-    G4RunManager *runManager = new G4RunManager();
-    
+    G4UIExecutive *ui = 0;
+
+    #ifdef G4MULTITHREADED
+        G4MTRunManager *runManager = new G4MTRunManager();
+    #else 
+        G4RunManager *runManager = new G4RunManager();
+    #endif
+
     runManager->SetUserInitialization(new MyDetectorConstruction());
     runManager->SetUserInitialization(new MyPhysicsList());
     runManager->SetUserInitialization(new MyActionInitialization());
 
-    runManager->Initialize();
-
-    G4UIExecutive *ui = 0;
-    
-    // ONLY USES UI MANAGER IF COMMANDS IN LINE ARE 1 (the only one is its name)
+    // ONLY USES UI MANAGER IF THERE ARE NO ARGUMENTS IN COMMAND-LINE EXCEPT NAME.
+    // THIS MEANS THAT THE UI IS NOT CREATED AND THE PROGRAM IS RUN IN BATCH AND NOT INTERACTIVE
     if(argc == 1) {
         ui = new G4UIExecutive(argc, argv);
     }
@@ -42,5 +46,16 @@ int main(int argc, char** argv)
         UImanager->ApplyCommand(command + fileName);
     }
 
+    if (!ui) {
+        G4cout << "Simulation: completed succesfully" << G4endl;
+        
+        if (argc == 2) {
+            G4cout << "Macro used: " << argv[1] << G4endl;
+        }
+    }
+
+    delete runManager;
+    delete visManager;
+    
     return 0;
 }
