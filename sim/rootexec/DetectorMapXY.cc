@@ -48,7 +48,6 @@ int main(int argc, char** argv)
     int point = 0;
     int xVals[nEntries], yVals[nEntries];
 
-
     std::cout << "Enter '1' for coordinate map or '2' for copy map: ";
     std::cin >> userIn;
 
