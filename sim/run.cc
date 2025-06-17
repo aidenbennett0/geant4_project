@@ -24,7 +24,9 @@ void MyRunAction::BeginOfRunAction(const G4Run* run)
     std::stringstream strRunID;
     strRunID << runID;
 
-    man->OpenFile("output"+strRunID.str()+".root");
+    system("mkdir -p ../myOutputFiles");
+
+    man->OpenFile("../myOutputFiles/output"+strRunID.str()+".root");
 }
 
 void MyRunAction::EndOfRunAction(const G4Run*)
