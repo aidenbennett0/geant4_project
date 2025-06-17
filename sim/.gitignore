@@ -1,1 +1,3 @@
-myOutputFiles/
+# this ignore folder is within the sim dir, if any issue arise try something with that
+/myOutputFiles/
+/build/
