@@ -1,12 +1,27 @@
-CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
- /usr/include/stdc-predef.h /usr/include/c++/4.8.2/iostream \
+CMakeFiles/sim.dir/src/detector.cc.o: \
+ /home/acb1145/geant4_project/sim/src/detector.cc \
+ /usr/include/stdc-predef.h \
+ /home/acb1145/geant4_project/sim/include/detector.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VSensitiveDetector.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VHit.hh \
+ /opt/geant4.10.04.p02/include/Geant4/globals.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ios.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Types.hh \
+ /usr/include/c++/4.8.2/complex \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/os_defines.h \
  /usr/include/features.h /usr/include/sys/cdefs.h \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/cpu_defines.h \
- /usr/include/c++/4.8.2/ostream /usr/include/c++/4.8.2/ios \
+ /usr/include/c++/4.8.2/bits/cpp_type_traits.h \
+ /usr/include/c++/4.8.2/ext/type_traits.h /usr/include/c++/4.8.2/cmath \
+ /usr/include/math.h /usr/include/bits/huge_val.h \
+ /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
+ /usr/include/bits/inf.h /usr/include/bits/nan.h \
+ /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
+ /usr/include/bits/mathinline.h /usr/include/c++/4.8.2/sstream \
+ /usr/include/c++/4.8.2/istream /usr/include/c++/4.8.2/ios \
  /usr/include/c++/4.8.2/iosfwd /usr/include/c++/4.8.2/bits/stringfwd.h \
  /usr/include/c++/4.8.2/bits/memoryfwd.h \
  /usr/include/c++/4.8.2/bits/postypes.h /usr/include/c++/4.8.2/cwchar \
@@ -22,8 +37,6 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /usr/include/c++/4.8.2/bits/char_traits.h \
  /usr/include/c++/4.8.2/bits/stl_algobase.h \
  /usr/include/c++/4.8.2/bits/functexcept.h \
- /usr/include/c++/4.8.2/bits/cpp_type_traits.h \
- /usr/include/c++/4.8.2/ext/type_traits.h \
  /usr/include/c++/4.8.2/ext/numeric_traits.h \
  /usr/include/c++/4.8.2/bits/stl_pair.h \
  /usr/include/c++/4.8.2/bits/move.h \
@@ -88,25 +101,13 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /usr/include/c++/4.8.2/bits/streambuf_iterator.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/ctype_inline.h \
  /usr/include/c++/4.8.2/bits/locale_facets.tcc \
- /usr/include/c++/4.8.2/bits/basic_ios.tcc \
- /usr/include/c++/4.8.2/bits/ostream.tcc /usr/include/c++/4.8.2/istream \
+ /usr/include/c++/4.8.2/bits/basic_ios.tcc /usr/include/c++/4.8.2/ostream \
+ /usr/include/c++/4.8.2/bits/ostream.tcc \
  /usr/include/c++/4.8.2/bits/istream.tcc \
- /opt/geant4.10.04.p02/include/Geant4/G4MTRunManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4RunManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4RunManagerKernel.hh \
- /opt/geant4.10.04.p02/include/Geant4/globals.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ios.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Types.hh \
- /usr/include/c++/4.8.2/complex /usr/include/c++/4.8.2/cmath \
- /usr/include/math.h /usr/include/bits/huge_val.h \
- /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
- /usr/include/bits/inf.h /usr/include/bits/nan.h \
- /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h \
- /usr/include/bits/mathinline.h /usr/include/c++/4.8.2/sstream \
  /usr/include/c++/4.8.2/bits/sstream.tcc \
  /opt/geant4.10.04.p02/include/Geant4/tls.hh \
- /usr/include/c++/4.8.2/algorithm /usr/include/c++/4.8.2/utility \
- /usr/include/c++/4.8.2/bits/stl_relops.h \
+ /usr/include/c++/4.8.2/iostream /usr/include/c++/4.8.2/algorithm \
+ /usr/include/c++/4.8.2/utility /usr/include/c++/4.8.2/bits/stl_relops.h \
  /usr/include/c++/4.8.2/bits/stl_algo.h \
  /usr/include/c++/4.8.2/bits/algorithmfwd.h \
  /usr/include/c++/4.8.2/bits/stl_heap.h \
@@ -148,33 +149,21 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
  /opt/geant4.10.04.p02/include/Geant4/G4ExceptionSeverity.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4EventManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/evmandefs.hh \
- /opt/geant4.10.04.p02/include/Geant4/trajectoryControl.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4StackManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UserStackingAction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ClassificationOfNewTrack.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4StackedTrack.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TrackStack.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartTrackStack.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Track.hh \
- /opt/geant4.10.04.p02/include/Geant4/trkdefs.hh \
+ /usr/include/c++/4.8.2/map /usr/include/c++/4.8.2/bits/stl_tree.h \
+ /usr/include/c++/4.8.2/bits/stl_map.h \
+ /usr/include/c++/4.8.2/bits/stl_multimap.h \
+ /opt/geant4.10.04.p02/include/Geant4/G4Step.hh \
+ /usr/include/c++/4.8.2/iomanip /usr/include/c++/4.8.2/locale \
+ /usr/include/c++/4.8.2/bits/locale_facets_nonio.h \
+ /usr/include/c++/4.8.2/ctime \
+ /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/time_members.h \
+ /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/4.8.2/bits/codecvt.h \
+ /usr/include/c++/4.8.2/bits/locale_facets_nonio.tcc \
  /opt/geant4.10.04.p02/include/Geant4/G4ThreeVector.hh \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Vector/ThreeVector.h \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Utility/defs.h \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Vector/ThreeVector.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4LogicalVolume.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Region.hh \
- /usr/include/c++/4.8.2/map /usr/include/c++/4.8.2/bits/stl_tree.h \
- /usr/include/c++/4.8.2/bits/stl_map.h \
- /usr/include/c++/4.8.2/bits/stl_multimap.h \
- /opt/geant4.10.04.p02/include/Geant4/G4GeomSplitter.hh \
- /opt/geant4.10.04.p02/include/Geant4/geomwdefs.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4AutoLock.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Threading.hh \
- /usr/include/unistd.h /usr/include/bits/posix_opt.h \
- /usr/include/bits/environments.h /usr/include/bits/confname.h \
- /usr/include/getopt.h /opt/geant4.10.04.p02/include/Geant4/G4Region.icc \
  /opt/geant4.10.04.p02/include/Geant4/G4VPhysicalVolume.hh \
  /opt/geant4.10.04.p02/include/Geant4/geomdefs.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4RotationMatrix.hh \
@@ -194,27 +183,24 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Vector/RotationZ.h \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Vector/RotationZ.icc \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Vector/Rotation.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4GeomSplitter.hh \
+ /opt/geant4.10.04.p02/include/Geant4/geomwdefs.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4AutoLock.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Threading.hh \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/getopt.h \
  /opt/geant4.10.04.p02/include/Geant4/G4VPhysicalVolume.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4LogicalVolume.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4StepPoint.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4Allocator.hh \
  /usr/include/c++/4.8.2/cstddef \
  /opt/geant4.10.04.p02/include/Geant4/G4AllocatorPool.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4DynamicParticle.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleDefinition.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PDefManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/pwdefs.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleDefinition.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4LorentzVector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleMomentum.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ElectronOccupancy.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4DynamicParticle.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4TrackStatus.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SteppingControl.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4StepStatus.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4TouchableHandle.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4VTouchable.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4VTouchable.icc \
  /opt/geant4.10.04.p02/include/Geant4/G4ReferenceCountedHandle.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUserTrackInformation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PhysicsModelCatalog.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4Material.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4Element.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4Isotope.hh \
@@ -226,7 +212,7 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/G4MaterialPropertyVector.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4PhysicsOrderedFreeVector.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4PhysicsVector.hh \
- /usr/include/c++/4.8.2/fstream /usr/include/c++/4.8.2/bits/codecvt.h \
+ /usr/include/c++/4.8.2/fstream \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/basic_file.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++io.h \
  /usr/include/c++/4.8.2/bits/fstream.tcc \
@@ -243,85 +229,34 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /usr/include/assert.h \
  /opt/geant4.10.04.p02/include/Geant4/G4ElementVector.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4MaterialTable.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Track.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4Step.hh \
- /usr/include/c++/4.8.2/iomanip /usr/include/c++/4.8.2/locale \
- /usr/include/c++/4.8.2/bits/locale_facets_nonio.h \
- /usr/include/c++/4.8.2/ctime \
- /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/time_members.h \
- /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/messages_members.h \
- /usr/include/libintl.h \
- /usr/include/c++/4.8.2/bits/locale_facets_nonio.tcc \
- /opt/geant4.10.04.p02/include/Geant4/G4StepPoint.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SteppingControl.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4StepStatus.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4LogicalVolume.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Region.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Region.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4LogicalVolume.icc \
  /opt/geant4.10.04.p02/include/Geant4/G4StepPoint.icc \
  /opt/geant4.10.04.p02/include/Geant4/G4TrackVector.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4Step.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4TrajectoryContainer.hh \
- /opt/geant4.10.04.p02/include/Geant4/evtdefs.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VTrajectory.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PrimaryTransformer.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleTable.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleTableIterator.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleTable.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4PrimaryParticle.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TrackingManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SteppingManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/Randomize.hh \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Randomize.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/DualRand.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandomEngine.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandomEngine.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/JamesRandom.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/MixMaxRng.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/MTwistEngine.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RanecuEngine.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RanluxEngine.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Ranlux64Engine.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RanshiEngine.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBinomial.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Random.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Random.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Utility/memory.h \
- /usr/include/c++/4.8.2/memory \
- /usr/include/c++/4.8.2/bits/stl_raw_storage_iter.h \
- /usr/include/c++/4.8.2/ext/concurrence.h \
- /usr/include/c++/4.8.2/bits/unique_ptr.h \
- /usr/include/c++/4.8.2/bits/shared_ptr.h \
- /usr/include/c++/4.8.2/bits/shared_ptr_base.h \
- /usr/include/c++/4.8.2/backward/auto_ptr.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBinomial.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBreitWigner.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandFlat.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Utility/thread_local.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandFlat.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBreitWigner.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandChiSquare.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandChiSquare.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandExponential.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandExponential.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandExpZiggurat.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBit.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBit.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGamma.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGamma.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGauss.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGauss.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGaussQ.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGaussQ.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGaussZiggurat.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGeneral.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGeneral.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandLandau.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandLandau.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoissonQ.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoisson.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoisson.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoissonQ.icc \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandStudentT.h \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandStudentT.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4Navigator.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Track.hh \
+ /opt/geant4.10.04.p02/include/Geant4/trkdefs.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4DynamicParticle.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleDefinition.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4PDefManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/pwdefs.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleDefinition.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4LorentzVector.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleMomentum.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ElectronOccupancy.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4DynamicParticle.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4TrackStatus.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VUserTrackInformation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4PhysicsModelCatalog.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Track.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4HCofThisEvent.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VHitsCollection.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VReadOutGeometry.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SensitiveVolumeList.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4TouchableHistory.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4NavigationHistory.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4AffineTransform.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4Transform3D.hh \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Geometry/Transform3D.h \
@@ -331,13 +266,6 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Geometry/Vector3D.h \
  /opt/geant4.10.04.p02/include/Geant4/CLHEP/Geometry/Normal3D.h \
  /opt/geant4.10.04.p02/include/Geant4/G4AffineTransform.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4GRSVolume.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4GRSVolume.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4GRSSolid.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4GRSSolid.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4TouchableHistoryHandle.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TouchableHistory.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4NavigationHistory.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4NavigationLevel.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4NavigationLevelRep.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4NavigationLevelRep.icc \
@@ -345,176 +273,6 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/G4NavigationHistoryPool.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4NavigationHistory.icc \
  /opt/geant4.10.04.p02/include/Geant4/G4TouchableHistory.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4NormalNavigation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VSolid.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VSolid.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4AuxiliaryNavServices.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4AuxiliaryNavServices.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4NormalNavigation.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4VoxelNavigation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4NavigationLogger.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4BlockingList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4BlockingList.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelProxy.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelProxy.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelNode.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelNode.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelHeader.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelHeader.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4VoxelNavigation.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ParameterisedNavigation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VPVParameterisation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VVolumeMaterialScanner.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParameterisedNavigation.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ReplicaNavigation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ReplicaNavigation.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4RegularNavigation.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Navigator.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ProcessManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VProcess.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PhysicsTable.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PhysicsTable.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4VParticleChange.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TrackFastVector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4FastVector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VParticleChange.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ForceCondition.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4GPILSelection.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleChange.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleChange.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ProcessType.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ProcessVector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ProcessVector.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ProcessManager.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4UserSteppingAction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VSteppingVerbose.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TrackingMessenger.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UImessenger.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UIdirectory.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UIcommand.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UIparameter.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UItokenNum.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ApplicationState.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UserTrackingAction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Event.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PrimaryVertex.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4HCofThisEvent.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VHitsCollection.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4DCofThisEvent.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VDigiCollection.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUserEventInformation.hh \
- /usr/include/c++/4.8.2/list /usr/include/c++/4.8.2/bits/stl_list.h \
- /usr/include/c++/4.8.2/bits/list.tcc \
- /opt/geant4.10.04.p02/include/Geant4/G4RNGHelper.hh \
- /usr/include/c++/4.8.2/queue /usr/include/c++/4.8.2/deque \
- /usr/include/c++/4.8.2/bits/stl_deque.h \
- /usr/include/c++/4.8.2/bits/deque.tcc \
- /usr/include/c++/4.8.2/bits/stl_queue.h \
- /opt/geant4.10.04.p02/include/Geant4/G4MTBarrier.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4RunManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UIExecutive.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUIshell.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VVisManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4GraphicsSystemList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VGraphicsSystem.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ModelingParameters.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisExtent.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Point3D.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisAttributes.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Colour.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Color.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisAttributes.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4PhysicalVolumeModel.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VModel.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VModel.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4Plane3D.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Normal3D.hh \
- /opt/geant4.10.04.p02/include/Geant4/CLHEP/Geometry/Plane3D.h \
- /opt/geant4.10.04.p02/include/Geant4/G4ModelingParameters.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4NullModel.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SceneHandlerList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VSceneHandler.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VGraphicsScene.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ViewerList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VViewer.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ViewParameters.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Vector3D.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VMarker.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Visible.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Visible.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4VMarker.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ViewParameters.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4VViewer.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4THitsMap.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4THitsCollection.hh \
- /usr/include/c++/4.8.2/unordered_map \
- /usr/include/c++/4.8.2/bits/hashtable.h \
- /usr/include/c++/4.8.2/bits/hashtable_policy.h \
- /usr/include/c++/4.8.2/bits/unordered_map.h \
- /opt/geant4.10.04.p02/include/Geant4/G4VSceneHandler.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4SceneList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Scene.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Scene.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4TrajectoriesModel.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisManager.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4VisExecutive.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VisExecutive.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4ASCIITree.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VTree.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4DAWNFILE.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4HepRep.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4HepRepFile.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4HepRepFileXMLWriter.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4RayTracer.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4HitFilterFactories.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VFilter.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VModelFactory.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VHit.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4DigiFilterFactories.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VDigi.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TrajectoryFilterFactories.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4TrajectoryModelFactories.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VTrajectoryModel.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VRML1File.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VRML2File.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4GMocrenFile.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLImmediateX.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLStoredX.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLImmediateXm.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLXm.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLStoredXm.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLImmediateQt.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLQt.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpenGLStoredQt.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4RayTracerX.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UImanager.hh \
- /opt/geant4.10.04.p02/include/Geant4/icomsdefs.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VStateDependent.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UIcommandStatus.hh \
- /home/acb1145/geant4_project/sim/include/construction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUserDetectorConstruction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VPhysicalVolume.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4LogicalVolume.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Box.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4CSGSolid.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Polyhedron.hh \
- /opt/geant4.10.04.p02/include/Geant4/HepPolyhedron.h \
- /opt/geant4.10.04.p02/include/Geant4/G4Box.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4PVPlacement.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4NistManager.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4NistElementBuilder.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4NistMaterialBuilder.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Pow.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SystemOfUnits.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4GenericMessenger.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4AnyType.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4AnyMethod.hh \
- /home/acb1145/geant4_project/sim/include/detector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VSensitiveDetector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VReadOutGeometry.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4SensitiveVolumeList.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4CollectionNameVector.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4VSDFilter.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4String.hh \
@@ -636,6 +394,13 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/G4VAnalysisManager.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4AnalysisManagerState.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4AnalysisVerbose.hh \
+ /usr/include/c++/4.8.2/memory \
+ /usr/include/c++/4.8.2/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/4.8.2/ext/concurrence.h \
+ /usr/include/c++/4.8.2/bits/unique_ptr.h \
+ /usr/include/c++/4.8.2/bits/shared_ptr.h \
+ /usr/include/c++/4.8.2/bits/shared_ptr_base.h \
+ /usr/include/c++/4.8.2/backward/auto_ptr.h \
  /opt/geant4.10.04.p02/include/Geant4/G4VAnalysisManager.icc \
  /opt/geant4.10.04.p02/include/Geant4/G4HnManager.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4BaseAnalysisManager.hh \
@@ -671,6 +436,8 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/tools/wroot/to \
  /opt/geant4.10.04.p02/include/Geant4/tools/wroot/directory \
  /opt/geant4.10.04.p02/include/Geant4/tools/strip \
+ /usr/include/c++/4.8.2/list /usr/include/c++/4.8.2/bits/stl_list.h \
+ /usr/include/c++/4.8.2/bits/list.tcc \
  /opt/geant4.10.04.p02/include/Geant4/tools/wroot/streamers \
  /opt/geant4.10.04.p02/include/Geant4/tools/wroot/file \
  /opt/geant4.10.04.p02/include/Geant4/tools/wroot/infos \
@@ -724,34 +491,132 @@ CMakeFiles/sim.dir/sim.cc.o: /home/acb1145/geant4_project/sim/sim.cc \
  /opt/geant4.10.04.p02/include/Geant4/G4TRNtupleDescription.hh \
  /opt/geant4.10.04.p02/include/Geant4/tools/ntuple_binding \
  /opt/geant4.10.04.p02/include/Geant4/G4TRNtupleManager.icc \
- /home/acb1145/geant4_project/sim/include/physics.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VModularPhysicsList.hh \
- /opt/geant4.10.04.p02/include/Geant4/rundefs.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUserPhysicsList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ProductionCutsTable.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4MaterialCutsCouple.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ProductionCuts.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4MCCIndexConversionTable.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUPLSplitter.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VPhysicsConstructor.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PhysicsListHelper.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4PhysicsListOrderingParameter.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4EmStandardPhysics.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4EmParticleList.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpticalPhysics.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpticalProcessIndex.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpticalPhysicsMessenger.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4OpticalSurface.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Physics2DVector.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Physics2DVector.icc \
- /opt/geant4.10.04.p02/include/Geant4/G4SurfaceProperty.hh \
- /home/acb1145/geant4_project/sim/include/action.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUserActionInitialization.hh \
- /home/acb1145/geant4_project/sim/include/generator.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4ParticleGun.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4VPrimaryGenerator.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4RunManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4RunManagerKernel.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4EventManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/evmandefs.hh \
+ /opt/geant4.10.04.p02/include/Geant4/trajectoryControl.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4StackManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UserStackingAction.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ClassificationOfNewTrack.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4StackedTrack.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4TrackStack.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartTrackStack.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4TrajectoryContainer.hh \
+ /opt/geant4.10.04.p02/include/Geant4/evtdefs.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VTrajectory.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4PrimaryTransformer.hh \
  /opt/geant4.10.04.p02/include/Geant4/G4ParticleTable.hh \
- /home/acb1145/geant4_project/sim/include/run.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4UserRunAction.hh \
- /opt/geant4.10.04.p02/include/Geant4/G4Run.hh
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleTableIterator.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleTable.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4PrimaryParticle.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4TrackingManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SteppingManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/Randomize.hh \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Randomize.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/DualRand.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandomEngine.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandomEngine.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/JamesRandom.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/MixMaxRng.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/MTwistEngine.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RanecuEngine.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RanluxEngine.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Ranlux64Engine.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RanshiEngine.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBinomial.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Random.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/Random.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Utility/memory.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBinomial.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBreitWigner.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandFlat.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Utility/thread_local.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandFlat.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBreitWigner.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandChiSquare.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandChiSquare.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandExponential.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandExponential.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandExpZiggurat.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBit.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandBit.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGamma.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGamma.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGauss.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGauss.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGaussQ.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGaussQ.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGaussZiggurat.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGeneral.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandGeneral.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandLandau.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandLandau.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoissonQ.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoisson.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoisson.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandPoissonQ.icc \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandStudentT.h \
+ /opt/geant4.10.04.p02/include/Geant4/CLHEP/Random/RandStudentT.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4Navigator.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4GRSVolume.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4GRSVolume.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4GRSSolid.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4GRSSolid.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4TouchableHistoryHandle.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4NormalNavigation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VSolid.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VSolid.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4AuxiliaryNavServices.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4AuxiliaryNavServices.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4NormalNavigation.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4VoxelNavigation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4NavigationLogger.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4BlockingList.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4BlockingList.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelProxy.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelProxy.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelNode.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelNode.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelHeader.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4SmartVoxelHeader.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4VoxelNavigation.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParameterisedNavigation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VPVParameterisation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VVolumeMaterialScanner.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParameterisedNavigation.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4ReplicaNavigation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ReplicaNavigation.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4RegularNavigation.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Navigator.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4ProcessManager.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VProcess.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4PhysicsTable.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4PhysicsTable.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4VParticleChange.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4TrackFastVector.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4FastVector.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VParticleChange.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4ForceCondition.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4GPILSelection.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleChange.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ParticleChange.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4ProcessType.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ProcessVector.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ProcessVector.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4ProcessManager.icc \
+ /opt/geant4.10.04.p02/include/Geant4/G4UserSteppingAction.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VSteppingVerbose.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4TrackingMessenger.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UImessenger.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UIdirectory.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UIcommand.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UIparameter.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UItokenNum.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4ApplicationState.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4UserTrackingAction.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4Event.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4PrimaryVertex.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4DCofThisEvent.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VDigiCollection.hh \
+ /opt/geant4.10.04.p02/include/Geant4/G4VUserEventInformation.hh
