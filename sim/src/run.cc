@@ -19,6 +19,10 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fZ");
     man->CreateNtupleIColumn("copyNo");
     man->FinishNtuple(1);
+
+    man->CreateNtuple("Scoring", "Scoring");
+    man->CreateNtupleDColumn("fEdep");
+    man->FinishNtuple(2);
 }
 
 MyRunAction::~MyRunAction()

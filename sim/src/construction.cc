@@ -75,6 +75,8 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
     logicRadiator = new G4LogicalVolume(solidRadiator, Aerogel, "logicRadiator");
 
+    fScoringVolume = logicRadiator;
+
     physRadiator = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.25*m), logicRadiator, "physRadiator", logicWorld, false, 0, true);
 
     // DEFINE ARRAY FOR PHOTOSENSOR DETECTORS
