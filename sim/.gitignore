@@ -1,3 +1,7 @@
-# this ignore file is within the sim dir, if any issue arise try something with that
+# this ignore file is within the sim dir, if any issue arises try something with that
 /myOutputFiles/
-/build/
+**/build/
+**/*.root
+**/*.png
+.vscode/settings.json
+**/*.code-workspace
