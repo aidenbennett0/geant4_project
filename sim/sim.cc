@@ -13,10 +13,8 @@
 
 int main(int argc, char** argv)
 {
-    G4UIExecutive *ui = 0;
-
     #ifdef G4MULTITHREADED
-        G4MTRunManager *runManager = new G4MTRunManager();
+        G4RunManager *runManager = new G4MTRunManager();
     #else 
         G4RunManager *runManager = new G4RunManager();
     #endif
@@ -25,20 +23,22 @@ int main(int argc, char** argv)
     runManager->SetUserInitialization(new MyPhysicsList());
     runManager->SetUserInitialization(new MyActionInitialization());
 
+    G4UIExecutive *ui = 0;
+
     // ONLY USES UI MANAGER IF THERE ARE NO ARGUMENTS IN COMMAND-LINE EXCEPT NAME.
     // THIS MEANS THAT THE UI IS NOT CREATED AND THE PROGRAM IS RUN IN BATCH AND NOT INTERACTIVE
     if(argc == 1) {
         ui = new G4UIExecutive(argc, argv);
     }
-
+ 
     G4VisManager *visManager = new G4VisExecutive();
     visManager->Initialize();
 
     G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
     if (ui) {
-    UImanager->ApplyCommand("/control/execute vis.mac");
-    ui->SessionStart();
+        UImanager->ApplyCommand("/control/execute vis.mac");
+        ui->SessionStart();
     }
     else {
         G4String command = "/control/execute ";

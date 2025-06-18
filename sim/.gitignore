@@ -1,5 +1,5 @@
 # this ignore file is within the sim dir, if any issue arises try something with that
-/myOutputFiles/
+/outputFiles/
 **/build/
 **/*.root
 **/*.png

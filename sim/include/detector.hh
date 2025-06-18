@@ -3,7 +3,8 @@
 
 #include "G4VSensitiveDetector.hh"
 #include "G4String.hh"
- 
+#include "G4SystemOfUnits.hh"
+
 #include "g4root.hh"
 
 #include "G4RunManager.hh"
