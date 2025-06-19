@@ -6,11 +6,20 @@ MyDetectorConstruction::MyDetectorConstruction()
 
     fMessenger ->DeclareProperty("nCols", nCols, "Number of Columns");
     fMessenger ->DeclareProperty("nRows", nRows, "Number of Rows");
+    fMessenger ->DeclareProperty("isCherenkov", isCherenkov, "Toggle Cherenkov setup");
+    fMessenger ->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
 
     nCols = 100;
     nRows = 100;
     
     DefineMaterials();
+
+    xWorld = 0.5*m;
+    yWorld = 0.5*m;
+    zWorld = 0.5*m;
+
+    isCherenkov = false;
+    isScintillator = true;
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
@@ -49,33 +58,27 @@ void MyDetectorConstruction::DefineMaterials()
     G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
     mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
 
+    Aerogel->SetMaterialPropertiesTable(mptAerogel);
+
     G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
     mptWorld->AddProperty("RINDEX", energy, rindexWorld, 2);
 
-    Aerogel->SetMaterialPropertiesTable(mptAerogel);
-
     worldMat->SetMaterialPropertiesTable(mptWorld);
+
+    Na = nist->FindOrBuildElement("Na");
+    I = nist->FindOrBuildElement("I");
+    NaI = new G4Material("NaI", 3.67*g/cm3, 2);
+    NaI->AddElement(Na, 1);
+    NaI->AddElement(I, 1);
 }
 
-G4VPhysicalVolume *MyDetectorConstruction::Construct()
+void MyDetectorConstruction::ConstructCherenkov()
 {
-    G4double xWorld = 0.5*m;
-    G4double yWorld = 0.5*m;
-    G4double zWorld = 0.5*m;
-
-    //G4Box("name", 0.5 * length, 0.5 * height, 0.5 * depth) ('*m' tells G4 to use meters (mm is default))
-    solidWorld = new G4Box("solidWorld", xWorld, yWorld, zWorld);
-
-    logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
-
-    // G4PVPlacement(rotation, G4ThreeVector(x, y, x), logicVolume, "name", place in mother volume?, boolean?, copy number, check for overlaps?)
-    physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "physWorld", 0, false, 0, true);
-
     solidRadiator = new G4Box("solidRadiator", 0.4*m, 0.4*m, 0.01*m);
 
     logicRadiator = new G4LogicalVolume(solidRadiator, Aerogel, "logicRadiator");
 
-    fScoringVolume = logicRadiator;
+    fScoringVolume = logicRadiator; 
 
     physRadiator = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.25*m), logicRadiator, "physRadiator", logicWorld, false, 0, true);
 
@@ -100,7 +103,37 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
         }
     }
     std::cout << "Total detector count: " << iteration;
+}
 
+void MyDetectorConstruction::ConstructScintillator()
+{
+    // G4Tubs("name", innerRadius, outerRadius, length, startingAngle, stoppingAngle);
+    solidScintillator = new G4Tubs("solidScintillator", 10*cm, 20*cm, 30*cm, 0*deg, 360*deg);
+
+    logicScintillator = new G4LogicalVolume(solidScintillator, NaI, "logicalScintillator");
+
+    fScoringVolume = logicScintillator;
+
+    physScintillator = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.), logicScintillator, "physScintillator", logicWorld, false, 0, true);
+}
+
+G4VPhysicalVolume *MyDetectorConstruction::Construct()
+{
+    //G4Box("name", 0.5 * length, 0.5 * height, 0.5 * depth) ('*m' tells G4 to use meters (mm is default))
+    solidWorld = new G4Box("solidWorld", xWorld, yWorld, zWorld);
+
+    logicWorld = new G4LogicalVolume(solidWorld, worldMat, "logicWorld");
+
+    // G4PVPlacement(rotation, G4ThreeVector(x, y, x), logicVolume, "name", place in mother volume?, boolean?, copy number, check for overlaps?)
+    physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "physWorld", 0, false, 0, true);
+
+    if(isCherenkov) {
+        ConstructCherenkov(); 
+    }
+
+    if(isScintillator) {
+        ConstructScintillator();
+    }
     return physWorld;
 }
 
@@ -108,5 +141,7 @@ void MyDetectorConstruction::ConstructSDandField()
 {
     MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
 
-    logicDetector->SetSensitiveDetector(sensDet); 
+    if(isCherenkov) {
+        logicDetector->SetSensitiveDetector(sensDet); 
+    }
 }

@@ -62,7 +62,11 @@
 			"typeindex": "cpp",
 			"typeinfo": "cpp",
 			"colorf": "cpp",
-			"mergeClean.C": "cpp"
+			"mergeClean.C": "cpp",
+			"GetNumOfEntriesFromTree.C": "cpp",
+			"histogramGenerator.C": "cpp",
+			"SegmentedOGSImageGenerator.C": "cpp",
+			"*.icc": "cpp"
 		}
 	}
 }

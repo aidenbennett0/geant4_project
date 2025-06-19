@@ -9,6 +9,7 @@
 #include "G4NistManager.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4GenericMessenger.hh"
+#include "G4Tubs.hh"
 
 #include "detector.hh"
 
@@ -30,17 +31,24 @@ private:
 
     // DEFINE THESE HERE TO PREVENT MEMORY DUPE WHEN CHANGING PARAMETERS
     G4Box *solidWorld, *solidRadiator, *solidDetector;
-    G4LogicalVolume *logicWorld, *logicRadiator;
-    G4VPhysicalVolume  *physWorld, *physRadiator, *physDetector;
+    G4Tubs *solidScintillator;
+    G4LogicalVolume *logicWorld, *logicRadiator, *logicScintillator;
+    G4VPhysicalVolume  *physWorld, *physRadiator, *physDetector, *physScintillator;
 
     G4GenericMessenger *fMessenger;
 
     G4LogicalVolume *fScoringVolume;
 
-    G4Material *SiO2, *H2O, *Aerogel, *worldMat;
-    G4Element *C;
+    G4Material *SiO2, *H2O, *Aerogel, *worldMat, *NaI;
+    G4Element *C, *Na, *I;
 
     void DefineMaterials();
+
+    void ConstructCherenkov();
+    void ConstructScintillator();
+
+    G4double xWorld, yWorld, zWorld;
+    G4bool isCherenkov, isScintillator;
 };
 
 #endif
