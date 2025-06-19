@@ -25,29 +25,29 @@ public:
 
 private:
     G4LogicalVolume *logicDetector;
-    virtual void ConstructSDandField();
-
-    G4int nCols, nRows;
 
     // DEFINE THESE HERE TO PREVENT MEMORY DUPE WHEN CHANGING PARAMETERS
-    G4Box *solidWorld, *solidRadiator, *solidDetector;
-    G4Tubs *solidScintillator;
+    G4Box *solidWorld, *solidRadiator, *solidDetector, *solidScintillator;
     G4LogicalVolume *logicWorld, *logicRadiator, *logicScintillator;
     G4VPhysicalVolume  *physWorld, *physRadiator, *physDetector, *physScintillator;
-
-    G4GenericMessenger *fMessenger;
-
-    G4LogicalVolume *fScoringVolume;
 
     G4Material *SiO2, *H2O, *Aerogel, *worldMat, *NaI;
     G4Element *C, *Na, *I;
 
     void DefineMaterials();
+    virtual void ConstructSDandField();
+
+    G4GenericMessenger *fMessenger;
+
+    G4LogicalVolume *fScoringVolume;
+
+    G4int nCols, nRows;
 
     void ConstructCherenkov();
     void ConstructScintillator();
 
     G4double xWorld, yWorld, zWorld;
+    
     G4bool isCherenkov, isScintillator;
 };
 

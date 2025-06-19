@@ -4,10 +4,10 @@ MyDetectorConstruction::MyDetectorConstruction()
 {
     fMessenger = new G4GenericMessenger(this, "/detector/", "Detector Construction");
 
-    fMessenger ->DeclareProperty("nCols", nCols, "Number of Columns");
-    fMessenger ->DeclareProperty("nRows", nRows, "Number of Rows");
-    fMessenger ->DeclareProperty("isCherenkov", isCherenkov, "Toggle Cherenkov setup");
-    fMessenger ->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
+    fMessenger->DeclareProperty("nCols", nCols, "Number of Columns");
+    fMessenger->DeclareProperty("nRows", nRows, "Number of Rows");
+    fMessenger->DeclareProperty("isCherenkov", isCherenkov, "Toggle Cherenkov setup");
+    fMessenger->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
 
     nCols = 100;
     nRows = 100;
@@ -54,6 +54,7 @@ void MyDetectorConstruction::DefineMaterials()
     G4double energy[2] = {1.239841939*eV/0.2, 1.239841939*eV/0.9};
     G4double rindexAerogel[2] = {1.1, 1.1};
     G4double rindexWorld[2] = {1.0, 1.0};
+    G4double rindexNaI[2] = {1.78, 1.78};
 
     G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
     mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
@@ -70,6 +71,20 @@ void MyDetectorConstruction::DefineMaterials()
     NaI = new G4Material("NaI", 3.67*g/cm3, 2);
     NaI->AddElement(Na, 1);
     NaI->AddElement(I, 1);
+
+    //{numRedPhotons, numBluePhotons}
+    G4double fraction[2] = {1.0, 1.0};
+
+    G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
+    mptNaI->AddProperty("RINDEX", energy, rindexNaI, 2);
+    mptNaI->AddProperty("FASTCOMPONENT", energy, fraction, 2);
+    // You use AddConstProperty for the following because they take no arrays as argument
+    mptNaI->AddConstProperty("SCINTILLATIONYIELD", 38/keV);
+    mptNaI->AddConstProperty("RESOLUTIONSCALE", 1);
+    mptNaI->AddConstProperty("FASTTIMECONSTANT", 250*ns);
+    mptNaI->AddConstProperty("YIELDRATIO", 1);
+
+    NaI->SetMaterialPropertiesTable(mptNaI);
 }
 
 void MyDetectorConstruction::ConstructCherenkov()
@@ -107,14 +122,32 @@ void MyDetectorConstruction::ConstructCherenkov()
 
 void MyDetectorConstruction::ConstructScintillator()
 {
-    // G4Tubs("name", innerRadius, outerRadius, length, startingAngle, stoppingAngle);
-    solidScintillator = new G4Tubs("solidScintillator", 10*cm, 20*cm, 30*cm, 0*deg, 360*deg);
+    solidScintillator = new G4Box("solidScintillator", 5*cm, 5*cm, 6*cm);
 
     logicScintillator = new G4LogicalVolume(solidScintillator, NaI, "logicalScintillator");
 
+    solidDetector = new G4Box("solidDetector", 1*cm, 5*cm, 6*cm);
+
+    logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
+
     fScoringVolume = logicScintillator;
 
-    physScintillator = new G4PVPlacement(0, G4ThreeVector(0.,0.,0.), logicScintillator, "physScintillator", logicWorld, false, 0, true);
+    for(G4int i = 0; i < 6; i++) {
+        for(G4int j = 0; j < 16; j++) {
+
+            G4Rotate3D rotZ(j*22.5*deg, G4ThreeVector(0.,0.,1.));
+
+            G4Translate3D transXScint(G4ThreeVector(5./tan(22.5/2*deg)*cm + 5.*cm, 0*cm, -40*cm + i*15*cm));
+            G4Translate3D transXDet(G4ThreeVector(5./tan(22.5/2*deg)*cm + 6.*cm + 5.*cm, 0*cm, -40*cm + i*15*cm));
+
+            G4Transform3D transformScint = (rotZ) * (transXScint);
+            G4Transform3D transformDet = (rotZ) * (transXDet);
+
+            physScintillator = new G4PVPlacement(transformScint, logicScintillator, "physScintillator", logicWorld, false, 0, true);
+            physDetector = new G4PVPlacement(transformDet, logicDetector, "physDetector", logicWorld, false, 0, true);
+        }
+    }
+
 }
 
 G4VPhysicalVolume *MyDetectorConstruction::Construct()
@@ -127,7 +160,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     // G4PVPlacement(rotation, G4ThreeVector(x, y, x), logicVolume, "name", place in mother volume?, boolean?, copy number, check for overlaps?)
     physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "physWorld", 0, false, 0, true);
 
-    if(isCherenkov) {
+    if(logicDetector != NULL) {
         ConstructCherenkov(); 
     }
 
