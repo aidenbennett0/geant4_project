@@ -13,11 +13,14 @@
 
 int main(int argc, char** argv)
 {
-    #ifdef G4MULTITHREADED
-        G4RunManager *runManager = new G4MTRunManager();
-    #else 
-        G4RunManager *runManager = new G4RunManager();
-    #endif
+   G4RunManager *runManager = nullptr;
+
+   if (argc == 1) {
+    runManager = new G4RunManager();
+   }
+   else {
+    runManager = new G4MTRunManager();
+   }
 
     runManager->SetUserInitialization(new MyDetectorConstruction());
     runManager->SetUserInitialization(new MyPhysicsList());

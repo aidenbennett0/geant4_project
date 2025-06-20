@@ -2,6 +2,9 @@
 
 MyDetectorConstruction::MyDetectorConstruction()
 {
+    isCherenkov = false;
+    isScintillator = true;
+    
     fMessenger = new G4GenericMessenger(this, "/detector/", "Detector Construction");
 
     fMessenger->DeclareProperty("nCols", nCols, "Number of Columns");
@@ -9,17 +12,14 @@ MyDetectorConstruction::MyDetectorConstruction()
     fMessenger->DeclareProperty("isCherenkov", isCherenkov, "Toggle Cherenkov setup");
     fMessenger->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
 
+    DefineMaterials();
+    
     nCols = 100;
     nRows = 100;
-    
-    DefineMaterials();
 
     xWorld = 0.5*m;
     yWorld = 0.5*m;
     zWorld = 0.5*m;
-
-    isCherenkov = false;
-    isScintillator = true;
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
@@ -55,6 +55,7 @@ void MyDetectorConstruction::DefineMaterials()
     G4double rindexAerogel[2] = {1.1, 1.1};
     G4double rindexWorld[2] = {1.0, 1.0};
     G4double rindexNaI[2] = {1.78, 1.78};
+    G4double reflectivity[2] = {1.0, 1.0};
 
     G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
     mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
@@ -75,9 +76,13 @@ void MyDetectorConstruction::DefineMaterials()
     //{numRedPhotons, numBluePhotons}
     G4double fraction[2] = {1.0, 1.0};
 
+    G4double abslength[2] = {1.5*m, 1.5*m};
+
+    // All parameters in quotes below are built into Geant4
     G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
     mptNaI->AddProperty("RINDEX", energy, rindexNaI, 2);
     mptNaI->AddProperty("FASTCOMPONENT", energy, fraction, 2);
+    mptNaI->AddProperty("ABSLENGTH", energy, abslength, 2);
     // You use AddConstProperty for the following because they take no arrays as argument
     mptNaI->AddConstProperty("SCINTILLATIONYIELD", 38/keV);
     mptNaI->AddConstProperty("RESOLUTIONSCALE", 1);
@@ -85,6 +90,20 @@ void MyDetectorConstruction::DefineMaterials()
     mptNaI->AddConstProperty("YIELDRATIO", 1);
 
     NaI->SetMaterialPropertiesTable(mptNaI);
+
+    // Adds the reflectivity of the scintillator
+    mirrorSurface = new G4OpticalSurface("mirrorSurface");
+
+    mirrorSurface->SetType(dielectric_metal);
+    mirrorSurface->SetFinish(ground);
+    mirrorSurface->SetModel(unified);
+
+    G4MaterialPropertiesTable *mptMirror = new G4MaterialPropertiesTable();
+
+    mptMirror->AddProperty("REFLECTIVITY", energy, reflectivity, 2);
+
+    mirrorSurface->SetMaterialPropertiesTable(mptMirror);
+    
 }
 
 void MyDetectorConstruction::ConstructCherenkov()
@@ -126,6 +145,9 @@ void MyDetectorConstruction::ConstructScintillator()
 
     logicScintillator = new G4LogicalVolume(solidScintillator, NaI, "logicalScintillator");
 
+    // Essentially adds a reflective coating to the world volume to keep photons in scintillator
+    G4LogicalSkinSurface *skin = new G4LogicalSkinSurface("skin", logicWorld, mirrorSurface);
+
     solidDetector = new G4Box("solidDetector", 1*cm, 5*cm, 6*cm);
 
     logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
@@ -143,8 +165,8 @@ void MyDetectorConstruction::ConstructScintillator()
             G4Transform3D transformScint = (rotZ) * (transXScint);
             G4Transform3D transformDet = (rotZ) * (transXDet);
 
-            physScintillator = new G4PVPlacement(transformScint, logicScintillator, "physScintillator", logicWorld, false, 0, true);
-            physDetector = new G4PVPlacement(transformDet, logicDetector, "physDetector", logicWorld, false, 0, true);
+            physScintillator = new G4PVPlacement(transformScint, logicScintillator, "physScintillator", logicWorld, false, 0, false);
+            physDetector = new G4PVPlacement(transformDet, logicDetector, "physDetector", logicWorld, false, 0, false);
         }
     }
 
@@ -160,7 +182,7 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
     // G4PVPlacement(rotation, G4ThreeVector(x, y, x), logicVolume, "name", place in mother volume?, boolean?, copy number, check for overlaps?)
     physWorld = new G4PVPlacement(0, G4ThreeVector(0., 0., 0.), logicWorld, "physWorld", 0, false, 0, true);
 
-    if(logicDetector != NULL) {
+    if(isCherenkov) {
         ConstructCherenkov(); 
     }
 
