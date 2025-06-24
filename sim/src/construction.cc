@@ -2,6 +2,10 @@
 
 MyDetectorConstruction::MyDetectorConstruction()
 {
+     
+    nCols = 10;
+    nRows = 10;
+
     isCherenkov = false;
     isScintillator = true;
     
@@ -13,9 +17,6 @@ MyDetectorConstruction::MyDetectorConstruction()
     fMessenger->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
 
     DefineMaterials();
-    
-    nCols = 100;
-    nRows = 100;
 
     xWorld = 0.5*m;
     yWorld = 0.5*m;
@@ -55,7 +56,6 @@ void MyDetectorConstruction::DefineMaterials()
     G4double rindexAerogel[2] = {1.1, 1.1};
     G4double rindexWorld[2] = {1.0, 1.0};
     G4double rindexNaI[2] = {1.78, 1.78};
-    G4double reflectivity[2] = {1.0, 1.0};
 
     G4MaterialPropertiesTable *mptAerogel = new G4MaterialPropertiesTable();
     mptAerogel->AddProperty("RINDEX", energy, rindexAerogel, 2);
@@ -64,8 +64,6 @@ void MyDetectorConstruction::DefineMaterials()
 
     G4MaterialPropertiesTable *mptWorld = new G4MaterialPropertiesTable();
     mptWorld->AddProperty("RINDEX", energy, rindexWorld, 2);
-
-    worldMat->SetMaterialPropertiesTable(mptWorld);
 
     Na = nist->FindOrBuildElement("Na");
     I = nist->FindOrBuildElement("I");
@@ -84,12 +82,14 @@ void MyDetectorConstruction::DefineMaterials()
     mptNaI->AddProperty("FASTCOMPONENT", energy, fraction, 2);
     mptNaI->AddProperty("ABSLENGTH", energy, abslength, 2);
     // You use AddConstProperty for the following because they take no arrays as argument
-    mptNaI->AddConstProperty("SCINTILLATIONYIELD", 38/keV);
-    mptNaI->AddConstProperty("RESOLUTIONSCALE", 1);
+    mptNaI->AddConstProperty("SCINTILLATIONYIELD", 38./keV);
+    mptNaI->AddConstProperty("RESOLUTIONSCALE", 1.0);
     mptNaI->AddConstProperty("FASTTIMECONSTANT", 250*ns);
     mptNaI->AddConstProperty("YIELDRATIO", 1);
 
     NaI->SetMaterialPropertiesTable(mptNaI);
+
+    worldMat->SetMaterialPropertiesTable(mptWorld);
 
     // Adds the reflectivity of the scintillator
     mirrorSurface = new G4OpticalSurface("mirrorSurface");
@@ -98,12 +98,12 @@ void MyDetectorConstruction::DefineMaterials()
     mirrorSurface->SetFinish(ground);
     mirrorSurface->SetModel(unified);
 
-    G4MaterialPropertiesTable *mptMirror = new G4MaterialPropertiesTable();
+    G4double reflectivity[2] = {1.0, 1.0};
 
+    G4MaterialPropertiesTable *mptMirror = new G4MaterialPropertiesTable();
     mptMirror->AddProperty("REFLECTIVITY", energy, reflectivity, 2);
 
     mirrorSurface->SetMaterialPropertiesTable(mptMirror);
-    
 }
 
 void MyDetectorConstruction::ConstructCherenkov()
@@ -148,11 +148,12 @@ void MyDetectorConstruction::ConstructScintillator()
     // Essentially adds a reflective coating to the world volume to keep photons in scintillator
     G4LogicalSkinSurface *skin = new G4LogicalSkinSurface("skin", logicWorld, mirrorSurface);
 
-    solidDetector = new G4Box("solidDetector", 1*cm, 5*cm, 6*cm);
+    fScoringVolume = logicScintillator;
+
+    solidDetector = new G4Box("solidDetector", 1.*cm, 5.*cm, 6.*cm);
 
     logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
 
-    fScoringVolume = logicScintillator;
 
     for(G4int i = 0; i < 6; i++) {
         for(G4int j = 0; j < 16; j++) {
@@ -165,8 +166,8 @@ void MyDetectorConstruction::ConstructScintillator()
             G4Transform3D transformScint = (rotZ) * (transXScint);
             G4Transform3D transformDet = (rotZ) * (transXDet);
 
-            physScintillator = new G4PVPlacement(transformScint, logicScintillator, "physScintillator", logicWorld, false, 0, false);
-            physDetector = new G4PVPlacement(transformDet, logicDetector, "physDetector", logicWorld, false, 0, false);
+            physScintillator = new G4PVPlacement(transformScint, logicScintillator, "physScintillator", logicWorld, false, 0, true);
+            physDetector = new G4PVPlacement(transformDet, logicDetector, "physDetector", logicWorld, false, 0, true);
         }
     }
 

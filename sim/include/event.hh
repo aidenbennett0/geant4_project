@@ -3,6 +3,7 @@
 
 #include "G4UserEventAction.hh"
 #include "G4Event.hh"
+#include "G4SystemOfUnits.hh"
 
 #include "g4root.hh"
 
@@ -14,8 +15,9 @@ class MyEventAction : public G4UserEventAction
     MyEventAction(MyRunAction*);
     ~MyEventAction();
 
-    virtual void BeginOfEventAction(const G4Event*);
-    virtual void EndOfEventAction(const G4Event*);
+ public:
+    virtual void BeginOfEventAction(const G4Event* event);
+    virtual void EndOfEventAction(const G4Event* event);
 
     void AddEdep(G4double edep) { fEdep += edep; }
 

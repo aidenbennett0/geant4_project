@@ -25,13 +25,16 @@ public:
 
     virtual G4VPhysicalVolume *Construct();
 
-private:
-    G4LogicalVolume *logicDetector;
+    void ConstructCherenkov();
+    void ConstructScintillator();
 
+private:
     // DEFINE THESE HERE TO PREVENT MEMORY DUPE WHEN CHANGING PARAMETERS
     G4Box *solidWorld, *solidRadiator, *solidDetector, *solidScintillator;
-    G4LogicalVolume *logicWorld, *logicRadiator, *logicScintillator;
+    G4LogicalVolume *logicWorld, *logicRadiator, *logicDetector, *logicScintillator;
     G4VPhysicalVolume  *physWorld, *physRadiator, *physDetector, *physScintillator;
+
+    G4OpticalSurface *mirrorSurface;
 
     G4Material *SiO2, *H2O, *Aerogel, *worldMat, *NaI;
     G4Element *C, *Na, *I;
@@ -45,14 +48,9 @@ private:
 
     G4int nCols, nRows;
 
-    void ConstructCherenkov();
-    void ConstructScintillator();
-
     G4double xWorld, yWorld, zWorld;
-    
-    G4bool isCherenkov, isScintillator;
 
-    G4OpticalSurface *mirrorSurface;
+    G4bool isCherenkov, isScintillator;
 };
 
 #endif

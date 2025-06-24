@@ -10,12 +10,13 @@
 class MySteppingAction : public G4UserSteppingAction
 {
  public:
-    MySteppingAction(MyEventAction* eventAction);
+    MySteppingAction(MyEventAction* event);
     ~MySteppingAction();
 
-    virtual void UserSteppingAction(const G4Step*);
+     void UserSteppingAction(const G4Step*) override;
 
- private:
-    MyEventAction *fEventAction;
+ public:
+    MyEventAction* fEventAction = nullptr;
 };
+
 #endif

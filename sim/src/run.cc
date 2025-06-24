@@ -17,7 +17,6 @@ MyRunAction::MyRunAction()
     man->CreateNtupleDColumn("fX");
     man->CreateNtupleDColumn("fY");
     man->CreateNtupleDColumn("fZ");
-    man->CreateNtupleIColumn("copyNo");
     man->FinishNtuple(1);
 
     man->CreateNtuple("Scoring", "Scoring");
@@ -31,6 +30,7 @@ MyRunAction::~MyRunAction()
 void MyRunAction::BeginOfRunAction(const G4Run* run)
 {
     G4AnalysisManager *man = G4AnalysisManager::Instance();
+
     G4int runID = run->GetRunID();
 
     std::stringstream strRunID;
@@ -48,6 +48,5 @@ void MyRunAction::EndOfRunAction(const G4Run*)
 
     // MUST USE WRITE OR ROOT WILL GET PISSED
     man->Write();
-
     man->CloseFile();
 }
