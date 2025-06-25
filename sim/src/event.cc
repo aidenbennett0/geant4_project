@@ -2,7 +2,7 @@
 
 MyEventAction::MyEventAction(MyRunAction*)
 {
-   // fEdep = 0.;
+    fEdep = 0.;
 }
 
 MyEventAction::~MyEventAction()
@@ -11,7 +11,7 @@ MyEventAction::~MyEventAction()
 void MyEventAction::BeginOfEventAction(const G4Event*)
 {
     // resets value of fEdep when new event starts
-  //  fEdep = 0.;
+    fEdep = 0.;
 }
 
 void MyEventAction::EndOfEventAction(const G4Event*)

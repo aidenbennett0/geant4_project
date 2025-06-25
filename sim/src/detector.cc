@@ -19,6 +19,8 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     G4ThreeVector posPhoton = preStepPoint->GetPosition();
     G4ThreeVector momPhoton = preStepPoint->GetMomentum();
 
+    G4double time = preStepPoint->GetGlobalTime();
+
     // EXPLANATION @ 11:50 OF PHYSMATTERS GEANT4 TUTORIAL 12
     G4double wlen = (1.239841939*eV/momPhoton.mag())*1E+03;
 
@@ -51,6 +53,7 @@ G4bool MySensitiveDetector::ProcessHits(G4Step *aStep, G4TouchableHistory *ROhis
     man->FillNtupleDColumn(0, 2, posPhoton[1]);
     man->FillNtupleDColumn(0, 3, posPhoton[2]);
     man->FillNtupleDColumn(0, 4, wlen);
+    man->FillNtupleDColumn(0, 5, time);
     man->AddNtupleRow(0);
 
     man->FillNtupleIColumn(1, 0, evt);

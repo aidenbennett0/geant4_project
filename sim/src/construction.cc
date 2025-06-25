@@ -8,6 +8,7 @@ MyDetectorConstruction::MyDetectorConstruction()
 
     isCherenkov = false;
     isScintillator = true;
+    isTOF = false;
     
     fMessenger = new G4GenericMessenger(this, "/detector/", "Detector Construction");
 
@@ -15,12 +16,13 @@ MyDetectorConstruction::MyDetectorConstruction()
     fMessenger->DeclareProperty("nRows", nRows, "Number of Rows");
     fMessenger->DeclareProperty("isCherenkov", isCherenkov, "Toggle Cherenkov setup");
     fMessenger->DeclareProperty("isScintillator", isScintillator, "Toggle Scintillator setup");
+    fMessenger->DeclareProperty("isTOF", isTOF, "Toggle Time of Flight setup");
 
     DefineMaterials();
 
-    xWorld = 0.5*m;
-    yWorld = 0.5*m;
-    zWorld = 0.5*m;
+    xWorld = 5*m;
+    yWorld = 5*m;
+    zWorld = 5*m; //change
 }
 
 MyDetectorConstruction::~MyDetectorConstruction()
@@ -173,6 +175,17 @@ void MyDetectorConstruction::ConstructScintillator()
 
 }
 
+void MyDetectorConstruction::ConstructTOF() 
+{
+    solidDetector = new G4Box("solidDetector", 1.*m, 1.*m, 0.1*m);
+
+    logicDetector = new G4LogicalVolume(solidDetector, worldMat, "logicDetector");
+
+    physDetector = new G4PVPlacement(0, G4ThreeVector(0.*m, 0.*m, -4.*m), logicDetector, "physDetector", logicWorld, false, 0, true);
+
+    physDetector = new G4PVPlacement(0, G4ThreeVector(0.*m, 0.*m, 3.*m), logicDetector, "physDetector", logicWorld, false, 1, true);
+
+}
 G4VPhysicalVolume *MyDetectorConstruction::Construct()
 {
     //G4Box("name", 0.5 * length, 0.5 * height, 0.5 * depth) ('*m' tells G4 to use meters (mm is default))
@@ -189,6 +202,10 @@ G4VPhysicalVolume *MyDetectorConstruction::Construct()
 
     if(isScintillator) {
         ConstructScintillator();
+    }
+
+    if(isTOF) {
+        ConstructTOF();
     }
     return physWorld;
 }

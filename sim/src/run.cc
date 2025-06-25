@@ -4,12 +4,15 @@ MyRunAction::MyRunAction()
 {
     G4AnalysisManager *man = G4AnalysisManager::Instance();
 
+    man->SetNtupleMerging(true);  // Enable merging
+
     man->CreateNtuple("Photons", "Photons");
     man->CreateNtupleIColumn("fEvent");
     man->CreateNtupleDColumn("fX");
     man->CreateNtupleDColumn("fY");
     man->CreateNtupleDColumn("fZ");
     man->CreateNtupleDColumn("fWlen");
+    man->CreateNtupleDColumn("fT");
     man->FinishNtuple(0);
 
     man->CreateNtuple("Hits", "Hits");
@@ -36,9 +39,9 @@ void MyRunAction::BeginOfRunAction(const G4Run* run)
     std::stringstream strRunID;
     strRunID << runID;
 
-    system("mkdir -p ../outputFiles");
+   // system("mkdir -p ../outputFiles");
 
-    man->OpenFile("../outputFiles/output"+strRunID.str()+".root");
+    man->OpenFile("output"+strRunID.str()+".root");
 }
 
 void MyRunAction::EndOfRunAction(const G4Run*)

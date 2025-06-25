@@ -27,6 +27,7 @@ public:
 
     void ConstructCherenkov();
     void ConstructScintillator();
+    void ConstructTOF();
 
 private:
     // DEFINE THESE HERE TO PREVENT MEMORY DUPE WHEN CHANGING PARAMETERS
@@ -50,7 +51,7 @@ private:
 
     G4double xWorld, yWorld, zWorld;
 
-    G4bool isCherenkov, isScintillator;
+    G4bool isCherenkov, isScintillator, isTOF;
 };
 
 #endif
