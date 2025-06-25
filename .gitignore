@@ -1,0 +1,7 @@
+**/outputFiles/
+**/build/
+**/build_02/
+**/*.root
+**/*.png
+.vscode/settings.json
+**/*.code-workspace

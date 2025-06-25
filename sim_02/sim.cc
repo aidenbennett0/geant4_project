@@ -1,0 +1,56 @@
+#include <iostream>
+
+#include "G4RunManager.hh"
+#include "G4MTRunManager.hh"
+#include "G4UImanager.hh"
+#include "G4VisManager.hh"
+#include "G4VisExecutive.hh"
+#include "G4UIExecutive.hh"
+#include "QGSP_BERT.hh"
+
+int main(int argc, char **argv) {
+
+    G4RunManager *runManager = nullptr;
+
+    #ifdef G4MULTITHREADED
+        runManager = new G4MTRunManager;
+    #else
+        runManager = new G4RunManager;
+    #endif
+
+    runManager->SetUserInitialization(new MyDetectorConstruction());
+    runManager->SetUserInitialization(new MyPhysicsList());
+    runManager->SetUserInitialization(new MyDetectorConstruction());
+
+    G4UIExecutive *ui = 0;
+
+    if (argc == 1) {
+        ui = new G4UIExecutive(argc, argv);
+    }
+
+    G4VisExecutive *visManager = new G4VisExecutive;
+    visManager->Initialize();
+
+    G4UImanager *UImanager = G4UIManager::GetPointer();
+
+    if(ui) {
+        UImanager->ApplyCommand("/control/execute vis.mac");
+        ui->SessionStart();
+    }
+    else {
+        G4String command = "/control/execute ";
+        G4String fileName = argv[1];
+        UImanager->ApplyCommand(command+fileName);
+    }
+
+    if(ui) {
+        G4cout << "Simulation: completed successfully." << G4endl;
+
+        if(argc == 2) {
+            G4cout << "Macro used: " << argv[1] << G4endl;
+        }
+    }
+
+    delete runManager;
+    delete visManager;
+}
