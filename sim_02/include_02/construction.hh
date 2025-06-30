@@ -13,6 +13,11 @@
 #include "G4OpticalSurface.hh"
 #include "G4LogicalSkinSurface.hh"
 
+#include "constructionMessenger.hh"
+#include "materials.hh"
+
+class ConstructionMessenger;
+
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
     public:

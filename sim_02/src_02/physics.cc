@@ -1,12 +1,12 @@
 #include "physics.hh"
 
-void PhysicsList::PhysicsList() {
+PhysicsList::PhysicsList() {
 
     G4int verb = 1;// verbosity, 0 silent, 1 warning messages, 2 more
     SetVerboseLevel(verb);
 
     RegisterPhysics (new G4DecayPhysics(verb));
-    RegisterPhysics (new G4RadiactiveDecayPhysics(verb));
+    RegisterPhysics (new G4RadioactiveDecayPhysics(verb));
     RegisterPhysics (new G4EmPenelopePhysics(verb));
 
     /**
@@ -21,4 +21,4 @@ void PhysicsList::SetCuts() {
 
 }
 
-void PhysicsList::~PhysicsList() {}
+PhysicsList::~PhysicsList() {}

@@ -33,7 +33,7 @@ class Cylinder3x3NaIDetector {
          * @param orientationTrans detector tranlsation relative to MOTHER volume
          */
 
-        Cylinder3x3NaIDetector(G4String name
+        Cylinder3x3NaIDetector(G4String name,
                                 G4LogicalVolume *motherVolume,
                                 G4int copyNumber,
                                 G4RotationMatrix* orientationRot,

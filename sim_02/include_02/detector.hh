@@ -15,6 +15,6 @@ class SensitiveDetector : public G4VSensitiveDetector
 
     private:
         virtual G4bool ProcessHits(G4Step *, G4TouchableHistory *);
-}
+};
 
 #endif
