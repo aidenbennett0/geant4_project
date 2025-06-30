@@ -18,9 +18,8 @@ int main(int argc, char **argv) {
         runManager = new G4RunManager;
     #endif
 
-    runManager->SetUserInitialization(new MyDetectorConstruction());
-    runManager->SetUserInitialization(new MyPhysicsList());
-    runManager->SetUserInitialization(new MyDetectorConstruction());
+    runManager->SetUserInitialization(new DetectorConstruction());
+    runManager->SetUserInitialization(new PhysicsList());
 
     G4UIExecutive *ui = 0;
 

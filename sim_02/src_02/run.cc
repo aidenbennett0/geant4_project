@@ -25,7 +25,7 @@ MyRunAction::MyRunAction() {
     man->CreateNtupleDColumn("secondaryEnergyDeposition");
     man->CreateNtupleIColumn("detectorID");
     man->CreateNtupleDColumn("TotalDeposition");
-    // man->CreateNtupleDColumn("TotalDepositionGEB");
+    man->CreateNtupleDColumn("TotalDepositionGEB");
     // man->FinishNtuple(0);
 
 }

@@ -64,8 +64,8 @@ class SensitiveDetector : public G4VSensitiveDetector {
          * 
          * @param paramGEB;
          */
-        void SetGEBParameters(G4ThreeVector paramGEB);
-        
+        void SetGEBParameters(G4ThreeVector parameters);
+
         private:
             G4double fEventEnergyDeposited;
             G4double fTotalEnergyDeposited;

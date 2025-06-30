@@ -6,9 +6,5 @@
 DetectorConstruction::DetectorConstruction() {
     
     messenger = new ConstructionMessenger(this);
-    detectorSegmentedOGS = new SegmentedOGS();
-    
-}
-DetectorConstruction::Construct() {
     
 }
