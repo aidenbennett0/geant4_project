@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
     G4VisExecutive *visManager = new G4VisExecutive;
     visManager->Initialize();
 
-    G4UImanager *UImanager = G4UIManager::GetPointer();
+    G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
     if(ui) {
         UImanager->ApplyCommand("/control/execute vis.mac");

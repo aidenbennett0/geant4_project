@@ -45,8 +45,12 @@ class ConstructionMessenger : public G4UImessenger {
         G4UIcmdWithAnInteger *detectorOptionCmd;
 
         /**
-         * @note There are additional messenger constructions after this point but it is for stuff I don't need. hehe
+         * @note There are additional messenger constructions here but it is for stuff I don't need. hehe
          */
         
+         G4UIdirectory *constructionDirectory;
+         G4UIdirectory *constructionDetectorDirectory;
+         G4UIdirectory *constructionSourceDirectory;
+
 };
 #endif

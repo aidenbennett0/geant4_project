@@ -48,8 +48,14 @@ class Cylinder3x3NaIDetector {
             G4LogicalVolume *GetSDLogicalVolume();
 
         /**
+         * @brief Returns a G4ThreeVector containing the gaussian energy broadening parameters
+         * These values are used within the MySensitiveDetector class for creating a spectrum based on measured values.
+         * 
+         * @return G4ThreeVector
+         * 
          * @todo Section in Ron's repo about getting Gaussian Energy Broadening Parameters but I wanted to understand it before I implemented it.
          */
+        G4ThreeVector GetGEBParameters();
 
       private:
             /**
@@ -66,6 +72,7 @@ class Cylinder3x3NaIDetector {
         /**
          * @todo Another section for the gaussian energy broadening 
          */
+        G4ThreeVector GEBparameters = G4ThreeVector(-1.14001e+01, 2.36321e+00 , 5.22111e-05);
 };
 
 #endif

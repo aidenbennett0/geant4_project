@@ -1,0 +1,17 @@
+/run/numberOfThreads 1 
+
+/construction/detector/option 0
+
+/analysis/setFileName visualization
+
+/vis/open OGL
+
+/vis/viewer/set/viewpointVector 1 0 0 # Sets initial view when sim opened
+/vis/viewer/set/autoRefresh true # Update UI after every event
+
+/vis/drawVolume # Draw all volumes
+
+
+
+/run/initialize
+

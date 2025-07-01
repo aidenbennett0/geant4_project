@@ -15,6 +15,7 @@
 
 #include "constructionMessenger.hh"
 #include "materials.hh"
+#include "Cylinder3x3NaIDetector.hh"
 
 class ConstructionMessenger;
 
@@ -24,20 +25,44 @@ class DetectorConstruction : public G4VUserDetectorConstruction
         DetectorConstruction();
         ~DetectorConstruction();
 
-        G4LogicalVolume *GetScoringVolume() const { return fScoringVolume; }
-
         virtual G4VPhysicalVolume *Construct();
 
-        void SetDetectorPosition(G4ThreeVector value);
+        /**
+         * @brief Set the Geometry option
+         */
+        void SetGeometryOption(G4int value);
+
+        /**
+         * @brief Set the Detector option
+         */
+        void SetDetectorOption(G4int value);
+
 
     private:        
+        /**
+         * @brief Virtual function. Setup of the world volume, a cuboid. 
+         * Provide desired half-length for x, y, and z.
+         * 
+         * @param sizeX half-length in x-direction
+         * @param sizeY half-length in y-direction
+         * @param sizeZ half-length in z-direction
+         */
         void ConstructWorldVolume(double sizeX, double sizeY, double sizeZ);
 
+        /**
+         * @brief Setup and construction of sensitive detectors
+         */
         virtual void ConstructSDandField();
 
+        // Used for geometry options selection
+        G4int geometryID = 0.;
+        G4int detectorID = 0.;
+
+        // Detector translation
         G4RotationMatrix* detectorRotation;
         G4ThreeVector* detectorTranslation;
 
+        // World volume objects
         G4Box* solidWorld;
         G4LogicalVolume *logicWorld;
         G4VPhysicalVolume *physicalWorld;
@@ -46,7 +71,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
 
         ConstructionMessenger *messenger;
 
-        3x3NaICylinderDetector *detectorConstructionNaI;
+        Cylinder3x3NaIDetector *detectorConstructionNaI;
 };
 
 #endif

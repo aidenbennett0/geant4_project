@@ -21,8 +21,8 @@
 
 class PhysicsList : public G4VModularPhysicsList {
     public:
-        PublicList();
-        ~PublicList();
+        PhysicsList();
+        ~PhysicsList();
 
         void SetCuts() override;
 };
