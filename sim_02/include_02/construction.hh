@@ -1,6 +1,8 @@
 #ifndef CONSTRUCTION_HH
 #define CONSTRUCTION_HH
 
+#include <chrono>
+
 #include "G4VUserDetectorConstruction.hh"
 #include "G4VPhysicalVolume.hh"
 #include "G4LogicalVolume.hh"
@@ -13,9 +15,15 @@
 #include "G4OpticalSurface.hh"
 #include "G4LogicalSkinSurface.hh"
 
-#include "constructionMessenger.hh"
-#include "materials.hh"
+// Detector constructions
 #include "Cylinder3x3NaIDetector.hh"
+
+// Sensitive detector and materials
+#include "sensitivedetector.hh"
+#include "materials.hh"
+
+// Messenger constructions
+#include "constructionMessenger.hh"
 
 class ConstructionMessenger;
 
@@ -64,7 +72,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
 
         // World volume objects
         G4Box* solidWorld;
-        G4LogicalVolume *logicWorld;
+        G4LogicalVolume *logicalWorld;
         G4VPhysicalVolume *physicalWorld;
 
         materials materialInstance;

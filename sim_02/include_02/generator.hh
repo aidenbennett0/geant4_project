@@ -1,10 +1,10 @@
 #ifndef GENERATOR_HH
 #define GENERATOR_HH
 
-#include "G4UserPrimaryGeneratorAction.hh"
+#include "G4VUserPrimaryGeneratorAction.hh"
 #include "G4GeneralParticleSource.hh"
 
-class Generator : public G4UserPrimaryGeneratorAction 
+class Generator : public G4VUserPrimaryGeneratorAction 
 {
     public:
         Generator();
