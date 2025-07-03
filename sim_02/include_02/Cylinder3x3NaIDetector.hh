@@ -42,7 +42,7 @@ class Cylinder3x3NaIDetector {
         ~Cylinder3x3NaIDetector();
 
         /**
-         * @brief Returns the logical lolume of the sensitive volume
+         * @brief Returns the logical volume of the sensitive volume
          * @return *G4LogicalVolume
          */
             G4LogicalVolume *GetSDLogicalVolume();
@@ -58,9 +58,9 @@ class Cylinder3x3NaIDetector {
         G4ThreeVector GetGEBParameters();
 
       private:
-            /**
-             * @todo These measurements have been directly taking from Ron's repo, need to find where to get them myself
-             */
+        /**
+         * @todo These measurements have been directly taking from Ron's repo, need to find where to get them myself
+         */
         G4double radius = 3.8*cm;
         G4double length = 7.6*cm;
         G4double reflectorThickness = 0.1*mm;

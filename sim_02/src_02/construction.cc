@@ -46,6 +46,18 @@ DetectorConstruction::DetectorConstruction() {
 
      if (detectorID == 0) { // Construct 3x3 NaI Cylinder Detector
 
+        // Detector transformation
+        detectorRotation = new G4RotationMatrix(); // @todo G4RotationMatric should be yellow here and not green
+        detectorRotation->rotateX(0*deg);
+
+        detectorConstructionNaI = new Cylinder3x3NaIDetector("detector",
+                                                            logicalWorld,
+                                                            100,
+                                                            detectorRotation,
+                                                            detectorTranslation);
+                                                            
+
+
      }
 
  }
@@ -59,7 +71,7 @@ DetectorConstruction::DetectorConstruction() {
 
     if (detectorID == 0) { // NaI sensitive detector
 
-        
+
     }
 }
 
@@ -86,8 +98,4 @@ void DetectorConstruction::SetDetectorOption(G4int value) {
         detectorID = value;
 }
 
-DetectorConstruction::~DetectorConstruction() {
-    
-    messenger = new ConstructionMessenger(this);
-    
-}
+DetectorConstruction::~DetectorConstruction() {}
