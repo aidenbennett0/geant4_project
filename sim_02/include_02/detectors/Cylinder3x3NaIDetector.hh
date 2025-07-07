@@ -45,7 +45,7 @@ class Cylinder3x3NaIDetector {
          * @brief Returns the logical volume of the sensitive volume
          * @return *G4LogicalVolume
          */
-            G4LogicalVolume *GetSDLogicalVolume();
+        G4LogicalVolume *GetSDLogicalVolume();
 
         /**
          * @brief Returns a G4ThreeVector containing the gaussian energy broadening parameters

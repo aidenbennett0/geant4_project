@@ -68,7 +68,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
 
         // Detector translation
         G4RotationMatrix* detectorRotation;
-        G4ThreeVector* detectorTranslation;
+        G4ThreeVector detectorTranslation;
 
         // World volume objects
         G4Box* solidWorld;

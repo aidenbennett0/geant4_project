@@ -8,6 +8,10 @@
 #include "G4UIExecutive.hh"
 #include "QGSP_BERT.hh"
 
+#include "action.hh"
+#include "construction.hh"
+#include "physics.hh"
+
 int main(int argc, char **argv) {
 
     G4RunManager *runManager = nullptr;
@@ -20,6 +24,7 @@ int main(int argc, char **argv) {
 
     runManager->SetUserInitialization(new DetectorConstruction());
     runManager->SetUserInitialization(new PhysicsList());
+    runManager->SetUserInitialization(new MyActionInitialization());
 
     G4UIExecutive *ui = 0;
 

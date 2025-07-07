@@ -45,7 +45,7 @@ class MyHit : public G4VHit {
          * 
          * @param detectorID
          */
-        void SetDetectorID(G4double detectorID) { fDetectorID = detectorID; }
+        void SetDetectorID(G4double DetectorID) { fDetectorID = DetectorID; }
 
         /**
          * @brief Get the detector ID of volume energy deposition occured
