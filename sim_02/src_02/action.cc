@@ -68,7 +68,7 @@ void MyActionInitialization::Build() const {
      * - Resets energy deposition sum at the beginning of each event
      * - Fill ROOT file with results at end of event
      */
-    MyEventAction *eventAction = new MyEventAction(runAction);
+    EventAction *eventAction = new EventAction(runAction);
     SetUserAction(eventAction);
 
     /**
@@ -76,7 +76,7 @@ void MyActionInitialization::Build() const {
      * 
      * Sets actions to be performed after every step (every interaction) within the simulation
      */
-    MySteppingAction *steppingAction = new MySteppingAction(eventAction);
+    SteppingAction *steppingAction = new SteppingAction(eventAction);
     SetUserAction(steppingAction);
 
 }
