@@ -56,10 +56,15 @@ DetectorConstruction::DetectorConstruction() {
                                                             detectorRotation,
                                                             detectorTranslation);
                                                             
+    }
+    // End the timing of how long it took to close geometry
+    auto end = std::chrono::high_resolution_clock::now();
 
+    // Calculate and print duration
+    std::chrono::duration<double> elapsed = end - start;
+    G4cout << "Time taken to close geometry: " << elapsed.count() << "seconds" << G4endl;
 
-     }
-
+    return physicalWorld;
  }
 
  /**
@@ -70,7 +75,15 @@ DetectorConstruction::DetectorConstruction() {
     SensitiveDetector* sensitiveDetector = new SensitiveDetector("sensitiveDetector", "hitsCollection");
 
     if (detectorID == 0) { // NaI sensitive detector
+        
+        // Set GEB parameters for sensitive detector
+        sensitiveDetector->SetGEBParameters(detectorConstructionNaI->GetGEBParameters());
 
+        // Add sensitive detector to sensitive detector manager
+        G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
+        
+        // Set logical volume as sensitive volume, method from G4LogicalVolume class
+        SetSensitiveDetector(detectorConstructionNaI->GetSDLogicalVolume(), sensitiveDetector);
 
     }
 }
