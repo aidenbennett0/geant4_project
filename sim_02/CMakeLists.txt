@@ -1,6 +1,9 @@
 # specifies which version of CMake to use
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
+# Set the debugger
+set(CMAKE_BUILD_TYPE Debug)
+
 # Name of the project
 project(Simulation)
 
