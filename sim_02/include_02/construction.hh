@@ -63,15 +63,15 @@ class DetectorConstruction : public G4VUserDetectorConstruction
         virtual void ConstructSDandField();
 
         // Used for geometry options selection
-        G4int geometryID = 0.;
-        G4int detectorID = 0.;
+        G4int geometryID = 0;
+        G4int detectorID = 0;
 
         // Detector translation
         G4RotationMatrix* detectorRotation;
         G4ThreeVector detectorTranslation;
 
         // World volume objects
-        G4Box* solidWorld;
+        G4Box *solidWorld;
         G4LogicalVolume *logicalWorld;
         G4VPhysicalVolume *physicalWorld;
 

@@ -4,6 +4,8 @@
 
 /analysis/setFileName visualization
 
+/run/initialize
+
 /vis/open OGL
 
 /vis/viewer/set/viewpointVector 1 0 0 # Sets initial view when sim opened
@@ -11,7 +13,7 @@
 
 /vis/drawVolume # Draw all volumes
 
-
-
-/run/initialize
-
+/vis/scene/add/trajectories smooth
+/vis/scene/add/endOfEventAction/accumulate
+/vis/scene/add/scale 10 cm
+/vis/scene/add/eventID

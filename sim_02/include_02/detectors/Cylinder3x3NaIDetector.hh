@@ -1,8 +1,6 @@
 #ifndef Cylinder3x3NaIDetector_hh
 #define Cylinder3x3NaIDetector_hh
 
-#include "construction.hh"
-
 #include "G4VUserDetectorConstruction.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
@@ -64,7 +62,7 @@ class Cylinder3x3NaIDetector {
         G4double radius = 3.8*cm;
         G4double length = 7.6*cm;
         G4double reflectorThickness = 0.1*mm;
-        G4double caseThickness = 0.5*mm; // I assume half-size for shell
+        G4double caseThickness = 0.5*mm;
 
         G4LogicalVolume *detectorScintillatorLogicalVolume;
         materials detectorMaterialsInstance;
@@ -72,7 +70,7 @@ class Cylinder3x3NaIDetector {
         /**
          * @todo Another section for the gaussian energy broadening 
          */
-        G4ThreeVector GEBparameters = G4ThreeVector(-1.14001e+01, 2.36321e+00 , 5.22111e-05);
+        G4ThreeVector GEBParameters = G4ThreeVector(-1.14001e+01, 2.36321e+00 , 5.22111e-05);
 };
 
 #endif

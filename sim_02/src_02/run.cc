@@ -32,7 +32,7 @@ MyRunAction::MyRunAction() {
 
 MyRunAction::~MyRunAction() {}
 
-void MyBeginOfRunAction(const G4Run* run) {
+void MyRunAction::BeginOfRunAction(const G4Run* run) {
 
     G4AnalysisManager *man = G4AnalysisManager::Instance();
 
@@ -44,7 +44,7 @@ void MyBeginOfRunAction(const G4Run* run) {
 
 }
 
-void MyEndOfRunAction() {
+void MyRunAction::EndOfRunAction(const G4Run*) {
 
     G4AnalysisManager *man = G4AnalysisManager::Instance();
 

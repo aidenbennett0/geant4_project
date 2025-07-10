@@ -18,3 +18,9 @@ G4Material *materials::NaI() {
     material->AddElement(nist->FindOrBuildElement("I"), 1);
     return material;
 }
+
+G4Material *materials::Teflon() {
+    G4Material *material;
+    material = nist->FindOrBuildMaterial("G4_TEFLON");
+    return material;
+}

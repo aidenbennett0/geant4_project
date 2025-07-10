@@ -28,6 +28,13 @@ class materials {
          */
         G4Material* Al();
 
+        /**
+         * @brief Teflon, reflective coating or insulator
+         * 
+         * @return G4Material*
+         */
+        G4Material* Teflon();
+
     private:
     /**
      * @brief Creates an instance of the NIST database which is used to get material properties
