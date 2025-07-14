@@ -3,7 +3,7 @@
 Generator::Generator() 
 {
     // Create a new particle source
-    fParticle = new G4GeneralParticleSource();
+    fparticle = new G4GeneralParticleSource();
 }
 
 /**
@@ -11,7 +11,7 @@ Generator::Generator()
  */
 Generator::~Generator() 
 {
-    delete fParticle;
+    delete fparticle;
 }
 
 /**
@@ -21,5 +21,5 @@ Generator::~Generator()
  */
 void Generator::GeneratePrimaries(G4Event *anEvent) 
 {
-    fParticle->GeneratePrimaryVertex(anEvent);
+    fparticle->GeneratePrimaryVertex(anEvent);
 }

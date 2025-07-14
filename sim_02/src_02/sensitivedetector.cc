@@ -118,6 +118,14 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
      * Sets threshold and does not record any events below it
      */
     G4double lowEnergyThreshold = 10;
+
+    G4cout << "Entries:" << fHitsCollection->entries() << G4endl;
+    G4cout << "TotalEdepPrimary: " << totalEdepPrimary << G4endl;
+    G4cout << "TotalEdepSecondary: " << totalEdepSecondary << G4endl;
+    G4cout << "DetectorID: " << detectorID << G4endl;
+    G4cout << "TotalEdepAllHits: " << totalEdepAllHits << G4endl;
+    G4cout << "TotalEdepGEB: " << totalEdepGEB << G4endl;
+
     if (totalEdep >= lowEnergyThreshold && totalEdepGEB >= lowEnergyThreshold) {
         man->FillNtupleIColumn(0, 0, fHitsCollection->entries()); // Number of entries
         man->FillNtupleDColumn(0, 1, totalEdepPrimary);           // Primary particle deposition
