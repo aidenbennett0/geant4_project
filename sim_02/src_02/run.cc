@@ -26,7 +26,7 @@ MyRunAction::MyRunAction() {
     man->CreateNtupleIColumn("detectorID");
     man->CreateNtupleDColumn("TotalDeposition");
     man->CreateNtupleDColumn("TotalDepositionGEB");
-    man->FinishNtuple(0);
+    // man->FinishNtuple(0);
 
 }
 

@@ -2,7 +2,7 @@
 
 PhysicsList::PhysicsList() {
 
-    G4int verb = 1;// verbosity, 0 silent, 1 warning messages, 2 more
+    G4int verb = 0;// verbosity, 0 silent, 1 warning messages, 2 more
     SetVerboseLevel(verb);
 
     RegisterPhysics (new G4DecayPhysics(verb));

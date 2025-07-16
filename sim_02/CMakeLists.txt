@@ -53,7 +53,7 @@ glob_files_recursively(${PROJECT_SOURCE_DIR} .cc sources)
 glob_files_recursively(${PROJECT_SOURCE_DIR}/include_02 .hh headers)
 
 # Copy all macro files to the binaries
-file(GLOB MACRO_FILES "*.mac")
+file(GLOB_RECURSE MACRO_FILES ${PROJECT_SOURCE_DIR}/macros_02/*.mac)
 file(COPY ${MACRO_FILES} DESTINATION ${PROJECT_BINARY_DIR})
 
 if(CMAKE_COMPILER_IS_GNUCC)
