@@ -1,16 +1,16 @@
 #include "generator.hh"
 
-Generator::Generator() 
-{
+Generator::Generator() {
     // Create a new particle source
     fparticle = new G4GeneralParticleSource();
 }
 
+
 /**
  * @brief Cleans up the Generator::Generator object
  */
-Generator::~Generator() 
-{
+Generator::~Generator() {
+
     delete fparticle;
 }
 
@@ -19,7 +19,7 @@ Generator::~Generator()
  * 
  * @param anEvent used by geant to create a single event
  */
-void Generator::GeneratePrimaries(G4Event *anEvent) 
-{
+void Generator::GeneratePrimaries(G4Event *anEvent) {
+    
     fparticle->GeneratePrimaryVertex(anEvent);
 }

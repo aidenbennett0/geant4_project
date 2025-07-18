@@ -112,6 +112,8 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
     G4double GEBSigma = GEBFWHM/2.35482; // Convert from FWHM to Sigma
     G4double totalEdepGEB = G4RandGauss::shoot(totalEdep,GEBSigma);
 
+    G4int numEntries = fHitsCollection->entries();
+    
     /**
      * @brief Fill the ROOT tree with deposition data
      * 
@@ -119,7 +121,9 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
      */
     G4double lowEnergyThreshold = 10;
 
-    G4cout << "Entries:" << fHitsCollection->entries() << G4endl;
+    
+
+    G4cout << "Entries:" << numEntries << G4endl;
     G4cout << "TotalEdepPrimary: " << totalEdepPrimary << G4endl;
     G4cout << "TotalEdepSecondary: " << totalEdepSecondary << G4endl;
     G4cout << "DetectorID: " << detectorID << G4endl;
@@ -127,7 +131,7 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
     G4cout << "TotalEdepGEB: " << totalEdepGEB << G4endl;
 
     // if (totalEdep >= lowEnergyThreshold && totalEdepGEB >= lowEnergyThreshold) {
-        man->FillNtupleIColumn(0, 0, fHitsCollection->entries()); // Number of entries
+        man->FillNtupleIColumn(0, 0, numEntries); // Number of entries
         man->FillNtupleDColumn(0, 1, totalEdepPrimary);           // Primary particle deposition
         man->FillNtupleDColumn(0, 2, totalEdepSecondary);         //Secondary particle deposition
         man->FillNtupleIColumn(0, 3, detectorID);                 // Detector ID

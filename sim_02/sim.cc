@@ -14,12 +14,10 @@
 
 int main(int argc, char **argv) {
 
-    G4RunManager *runManager = nullptr;
-
     #ifdef G4MULTITHREADED
-        runManager = new G4MTRunManager;
+        G4RunManager *runManager = new G4MTRunManager();
     #else
-        runManager = new G4RunManager;
+        G4RunManager *runManager = new G4RunManager();
     #endif
 
     runManager->SetUserInitialization(new DetectorConstruction());
@@ -30,24 +28,27 @@ int main(int argc, char **argv) {
 
     if (argc == 1) {
         ui = new G4UIExecutive(argc, argv);
+
+        G4cout << "** UI initialized **" << G4endl;
     }
 
-    G4VisExecutive *visManager = new G4VisExecutive;
+    G4VisManager *visManager = new G4VisExecutive;
     visManager->Initialize();
 
-    G4UImanager *UImanager = G4UImanager::GetUIpointer();
+    G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
-    if(ui) {
-        UImanager->ApplyCommand("/control/execute vis.mac");
+   if(ui) {
+        UImanager->ApplyCommand("/control/execute ../vis.mac");
         ui->SessionStart();
     }
+
     else {
         G4String command = "/control/execute ";
         G4String fileName = argv[1];
         UImanager->ApplyCommand(command+fileName);
     }
 
-    if(ui) {
+    if(!ui) {
         G4cout << "Simulation: completed successfully." << G4endl;
 
         if(argc == 2) {

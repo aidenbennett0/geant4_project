@@ -29,8 +29,8 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                                       "detectorCasingLogicalVolume");
 
     G4VisAttributes *detectorVisualization = new G4VisAttributes();
-    //detectorVisualization->SetForceWireframe(true);
-    detectorVisualization->SetForceSolid(true);
+    detectorVisualization->SetForceWireframe(true);
+    //detectorVisualization->SetForceSolid(true);
     detectorVisualization->SetColor(G4Color::Gray());
     detectorCasingLogicalVolume->SetVisAttributes(detectorVisualization);
 

@@ -7,10 +7,10 @@
 /run/initialize
 
 /gps/particle ion
-/gps/ion 27 60 0 0
+/gps/ion 27 60
 /gps/energy 0 keV
 /gps/pos/type Point
 /gps/ang/type iso
-/gps/pos/centre 0 0 0 cm
+/gps/pos/centre 0 0 -5 cm
 
-/run/beamOn 30000
+/run/beamOn 10
