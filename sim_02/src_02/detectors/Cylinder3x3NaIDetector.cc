@@ -12,8 +12,10 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
     volumeRotation->isIdentity();  // Checks if this is identity translation (meaning no rotation and no translation, essentially it does nothing, aka default state). Returns true if is default.
     G4ThreeVector volumeTranslation(0*cm, 0*cm, 0*cm);
 
+    G4ThreeVector sourceBoxTranslation(0, 0, (length/2 + boxZ/2)); // The translation of the source box relative to the mother volume (in mm because the variables are passed as such by G4)
+
     /**
-     * @brief Set up the detector case volume
+     * @brief Construct the detector casing
      */
     G4VSolid *detectorCasing;
     detectorCasing = new G4Tubs("detectorCasing",
@@ -44,7 +46,7 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                       false);
 
     /**
-     * @brief Set up the reflector
+     * @brief Set up the reflector for the detector casing
      */
     G4VSolid *detectorReflector;
     detectorReflector = new G4Tubs("detectorReflectorSolid",
@@ -60,8 +62,8 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                                    "detectorReflectorLogical");
     
     G4VisAttributes *reflectorVisualization = new G4VisAttributes();
-    //reflectorVisualization->SetForceWireframe(true);
-    reflectorVisualization->SetForceSolid(true);
+    reflectorVisualization->SetForceWireframe(true);
+    //reflectorVisualization->SetForceSolid(true);
     reflectorVisualization->SetColor(G4Color::Blue());
     detectorReflectorLogical->SetVisAttributes(reflectorVisualization);
 
@@ -74,10 +76,13 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                       copyNumberTracker++,
                       false);
 
+    /**
+     * @brief Construct the NaI detector
+     */
     G4VSolid *detectorScintillator;
     detectorScintillator = new G4Tubs("detectorScintillatorSolid",
                                       0,
-                                      radius,
+                                      (radius-0.001),
                                       length/2,
                                       0,
                                       2*pi);
@@ -98,6 +103,59 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                       "detectorScintillator",
                       detectorReflectorLogical,
                       0,
+                      copyNumber,
+                      false);
+
+    /**
+     * @brief Construct the box to surround the particle source to prevent leak
+     */
+    G4VSolid *particleSourceBox;
+    particleSourceBox = new G4Box("particleSourceBox", 
+                                  boxX, 
+                                  boxY, 
+                                  boxZ);
+
+    G4LogicalVolume *sourceBoxLogical;
+    sourceBoxLogical = new G4LogicalVolume(particleSourceBox, 
+                                           detectorMaterialsInstance.Al(),
+                                           "sourceBoxLogical");
+
+    G4VisAttributes *sourceBoxVisualization = new G4VisAttributes();
+    sourceBoxVisualization->SetForceWireframe(true);
+    //sourceBoxVisualization->SetForceSolid(true);
+    sourceBoxVisualization->SetColor(G4Color::Red());
+    sourceBoxLogical->SetVisAttributes(sourceBoxVisualization);
+
+    new G4PVPlacement(volumeRotation, 
+                      sourceBoxTranslation,
+                      sourceBoxLogical,
+                      "sourceBox",
+                      motherVolume,
+                      0,
+                      copyNumber,
+                      false);
+    
+    /**
+     * @brief Construct the reflector for the particle source box
+     */
+    G4VSolid *sourceBoxReflector;
+    sourceBoxReflector = new G4Box("sourceBoxReflector", boxX, boxY, boxZ);
+
+    G4LogicalVolume *sourceBoxReflectorLogical;
+    sourceBoxReflectorLogical = new G4LogicalVolume(sourceBoxReflector, detectorMaterialsInstance.Teflon(), "sourceBoxReflectorLogical");
+
+    G4VisAttributes* sourceBoxReflectorVisualization = new G4VisAttributes();
+    //sourceBoxReflectorVisualization->SetForceWireframe(true);
+    sourceBoxReflectorVisualization->SetForceSolid(true);
+    sourceBoxReflectorVisualization->SetColor(G4Color::Blue());
+    sourceBoxReflectorLogical->SetVisAttributes(sourceBoxReflectorVisualization);
+
+    new G4PVPlacement(volumeRotation,
+                      G4ThreeVector(0.,0.,0),
+                      sourceBoxReflectorLogical,
+                      "sourceBoxReflector",
+                      sourceBoxLogical,
+                      false,
                       copyNumber,
                       false);
 

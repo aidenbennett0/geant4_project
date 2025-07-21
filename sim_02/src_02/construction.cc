@@ -47,7 +47,7 @@ DetectorConstruction::DetectorConstruction() {
      if (detectorID == 0) { // Construct 3x3 NaI Cylinder Detector
 
         // Detector transformation
-        detectorRotation = new G4RotationMatrix(); // @todo G4RotationMatric should be yellow here and not green
+        detectorRotation = new G4RotationMatrix(); // @todo G4RotationMatrix should be yellow here and not green
         detectorRotation->rotateX(0*deg);
 
         detectorConstructionNaI = new Cylinder3x3NaIDetector("detector",
@@ -55,7 +55,6 @@ DetectorConstruction::DetectorConstruction() {
                                                             100,
                                                             detectorRotation,
                                                             detectorTranslation);
-                                                            
     }
     // End the timing of how long it took to close geometry
     auto end = std::chrono::high_resolution_clock::now();

@@ -16,6 +16,7 @@
 #include "G4Transform3D.hh"
 #include "G4VSolid.hh"
 #include "G4SubtractionSolid.hh"
+#include "G4Box.hh"
 
 class Cylinder3x3NaIDetector {
     public:
@@ -63,6 +64,10 @@ class Cylinder3x3NaIDetector {
         G4double length = 7.6*cm;
         G4double reflectorThickness = 0.1*mm;
         G4double caseThickness = 0.5*mm;
+
+        G4double boxX = 1*cm;
+        G4double boxY = 1*cm;
+        G4double boxZ = 1*cm;
 
         G4LogicalVolume *detectorScintillatorLogicalVolume;
         materials detectorMaterialsInstance;
