@@ -23,26 +23,30 @@
 /vis/scene/add/scale 10 cm
 /vis/scene/add/eventID
 
-/gps/particle ion
-/gps/ion 27 60 0 0
-/gps/energy 0 keV
+/gps/particle gamma
+/gps/energy 80 keV
+
+#/gps/particle ion
+#/gps/ion 27 60 0 0
+#/gps/energy 0 keV
 /gps/pos/type Point
 /gps/ang/type iso
-/gps/pos/centre 0 0 4.3 cm
+# /gps/pos/centre 0 0 4.3 cm 
+/gps/pos/centre 0 0 0 cm
 
-/vis/viewer/addCutawayPlane 0.1 0 0 mm -1 0 0
-/vis/viewer/addCutawayPlane -0.1 0 0 mm 1 0 0 
+#/vis/viewer/addCutawayPlane 0.1 0 0 mm -1 0 0
+#/vis/viewer/addCutawayPlane -0.1 0 0 mm 1 0 0 
 
 # Visualize Hits
-/vis/modeling/trajectories/create/drawByCharge
-/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
-/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 10
-/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsColour White
+#/vis/modeling/trajectories/create/drawByCharge
+#/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+#/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 10
+#/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsColour White
 
-#/vis/modeling/trajectories/create/drawByParticleID
-#/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
-#/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 10
-#/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsColour White
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 10
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsColour White
 
 /vis/scene/add/hits
 

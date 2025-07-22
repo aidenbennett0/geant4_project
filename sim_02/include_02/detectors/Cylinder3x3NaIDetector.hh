@@ -68,6 +68,7 @@ class Cylinder3x3NaIDetector {
         G4double boxX = 1*cm;
         G4double boxY = 1*cm;
         G4double boxZ = 1*cm;
+        G4double sourceReflectorThickness = 0.1*mm;
 
         G4LogicalVolume *detectorScintillatorLogicalVolume;
         materials detectorMaterialsInstance;

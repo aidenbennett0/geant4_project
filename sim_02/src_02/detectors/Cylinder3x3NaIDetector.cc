@@ -92,8 +92,8 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                                             name);
 
     G4VisAttributes *scintillatorVisualization = new G4VisAttributes();
-    //scintillatorVisualization->SetForceWireframe(true);
-    scintillatorVisualization->SetForceSolid(true);
+    scintillatorVisualization->SetForceWireframe(true);
+    //scintillatorVisualization->SetForceSolid(true);
     scintillatorVisualization->SetColor(G4Color::White());
     detectorScintillatorLogicalVolume->SetVisAttributes(scintillatorVisualization);
 
@@ -105,60 +105,45 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                       0,
                       copyNumber,
                       false);
-
+/*
     /**
      * @brief Construct the box to surround the particle source to prevent leak
      */
-    G4VSolid *particleSourceBox;
-    particleSourceBox = new G4Box("particleSourceBox", 
+    G4VSolid *sourceBox;
+    sourceBox = new G4Box("particleSourceBox", 
                                   boxX, 
                                   boxY, 
                                   boxZ);
-
-    G4LogicalVolume *sourceBoxLogical;
-    sourceBoxLogical = new G4LogicalVolume(particleSourceBox, 
-                                           detectorMaterialsInstance.Al(),
-                                           "sourceBoxLogical");
-
-    G4VisAttributes *sourceBoxVisualization = new G4VisAttributes();
-    sourceBoxVisualization->SetForceWireframe(true);
-    //sourceBoxVisualization->SetForceSolid(true);
-    sourceBoxVisualization->SetColor(G4Color::Red());
-    sourceBoxLogical->SetVisAttributes(sourceBoxVisualization);
-
-    new G4PVPlacement(volumeRotation, 
-                      sourceBoxTranslation,
-                      sourceBoxLogical,
-                      "sourceBox",
-                      motherVolume,
-                      0,
-                      copyNumber,
-                      false);
+/*
     
-    /**
-     * @brief Construct the reflector for the particle source box
-     */
+    // @brief Construct the reflector for the particle source box
+     
     G4VSolid *sourceBoxReflector;
-    sourceBoxReflector = new G4Box("sourceBoxReflector", boxX, boxY, boxZ);
+    sourceBoxReflector = new G4Box("sourceBoxReflector",
+                                   boxX+sourceReflectorThickness, 
+                                   boxY+sourceReflectorThickness, 
+                                   boxZ+sourceReflectorThickness);
+
+    G4SubtractionSolid* sourceBoxSubtraction = new G4SubtractionSolid("sourceBoxSubtraction", sourceBoxReflector, sourceBox);
 
     G4LogicalVolume *sourceBoxReflectorLogical;
-    sourceBoxReflectorLogical = new G4LogicalVolume(sourceBoxReflector, detectorMaterialsInstance.Teflon(), "sourceBoxReflectorLogical");
+    sourceBoxReflectorLogical = new G4LogicalVolume(sourceBoxSubtraction, detectorMaterialsInstance.Teflon(), "sourceBoxReflectorLogical");
 
-    G4VisAttributes* sourceBoxReflectorVisualization = new G4VisAttributes();
-    //sourceBoxReflectorVisualization->SetForceWireframe(true);
-    sourceBoxReflectorVisualization->SetForceSolid(true);
-    sourceBoxReflectorVisualization->SetColor(G4Color::Blue());
-    sourceBoxReflectorLogical->SetVisAttributes(sourceBoxReflectorVisualization);
+    G4VisAttributes* sourceBoxReflectorVis = new G4VisAttributes();
+    sourceBoxReflectorVis->SetForceWireframe(true);
+    //sourceBoxReflectorVis->SetForceSolid(true);
+    sourceBoxReflectorVis->SetColor(G4Color::Blue());
+    sourceBoxReflectorLogical->SetVisAttributes(sourceBoxReflectorVis);
 
     new G4PVPlacement(volumeRotation,
-                      G4ThreeVector(0.,0.,0),
+                      sourceBoxTranslation,
                       sourceBoxReflectorLogical,
                       "sourceBoxReflector",
-                      sourceBoxLogical,
+                      motherVolume,
                       false,
                       copyNumber,
                       false);
-
+*/
 }
 
 /**

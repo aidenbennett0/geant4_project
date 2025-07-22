@@ -130,7 +130,7 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
     G4cout << "TotalEdepAllHits: " << totalEdepAllHits << G4endl;
     G4cout << "TotalEdepGEB: " << totalEdepGEB << G4endl;
 
-    // if (totalEdep >= lowEnergyThreshold && totalEdepGEB >= lowEnergyThreshold) {
+    if (totalEdep >= lowEnergyThreshold && totalEdepGEB >= lowEnergyThreshold) {
         man->FillNtupleIColumn(0, 0, numEntries); // Number of entries
         man->FillNtupleDColumn(0, 1, totalEdepPrimary);           // Primary particle deposition
         man->FillNtupleDColumn(0, 2, totalEdepSecondary);         //Secondary particle deposition
@@ -138,7 +138,7 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
         man->FillNtupleDColumn(0, 4, totalEdepAllHits);           //Energy deposition for each event
         man->FillNtupleDColumn(0, 5, totalEdepGEB);               // GEB-applied energy deposition
         man->AddNtupleRow(0); // Add the next row inside the ntuple
-    // }
+    }
 }
 
     void SensitiveDetector::SetGEBParameters(G4ThreeVector parameters) {

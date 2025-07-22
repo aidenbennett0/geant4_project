@@ -14,7 +14,7 @@ G4Material *materials::Al() {
 
 G4Material *materials::NaI() {
     G4Material *material;
-    material = new G4Material("NaI", 3.67*cm3,2);
+    material = new G4Material("NaI", 3.67*g/cm3,2);
     material->AddElement(nist->FindOrBuildElement("Na"), 1);
     material->AddElement(nist->FindOrBuildElement("I"), 1);
     return material;
