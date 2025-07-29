@@ -31,8 +31,8 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                                       "detectorCasingLogicalVolume");
 
     G4VisAttributes *detectorVisualization = new G4VisAttributes();
-    detectorVisualization->SetForceWireframe(true);
-    //detectorVisualization->SetForceSolid(true);
+    //detectorVisualization->SetForceWireframe(true);
+    detectorVisualization->SetForceSolid(true);
     detectorVisualization->SetColor(G4Color::Gray());
     detectorCasingLogicalVolume->SetVisAttributes(detectorVisualization);
 
@@ -62,8 +62,8 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                                    "detectorReflectorLogical");
     
     G4VisAttributes *reflectorVisualization = new G4VisAttributes();
-    reflectorVisualization->SetForceWireframe(true);
-    //reflectorVisualization->SetForceSolid(true);
+    //reflectorVisualization->SetForceWireframe(true);
+    reflectorVisualization->SetForceSolid(true);
     reflectorVisualization->SetColor(G4Color::Blue());
     detectorReflectorLogical->SetVisAttributes(reflectorVisualization);
 
@@ -92,8 +92,8 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                                             name);
 
     G4VisAttributes *scintillatorVisualization = new G4VisAttributes();
-    scintillatorVisualization->SetForceWireframe(true);
-    //scintillatorVisualization->SetForceSolid(true);
+    //scintillatorVisualization->SetForceWireframe(true);
+    scintillatorVisualization->SetForceSolid(true);
     scintillatorVisualization->SetColor(G4Color::White());
     detectorScintillatorLogicalVolume->SetVisAttributes(scintillatorVisualization);
 

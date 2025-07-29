@@ -122,13 +122,14 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce) {
     G4double lowEnergyThreshold = 10;
 
     
-
+/*
     G4cout << "Entries:" << numEntries << G4endl;
     G4cout << "TotalEdepPrimary: " << totalEdepPrimary << G4endl;
     G4cout << "TotalEdepSecondary: " << totalEdepSecondary << G4endl;
     G4cout << "DetectorID: " << detectorID << G4endl;
     G4cout << "TotalEdepAllHits: " << totalEdepAllHits << G4endl;
     G4cout << "TotalEdepGEB: " << totalEdepGEB << G4endl;
+*/
 
     if (totalEdep >= lowEnergyThreshold && totalEdepGEB >= lowEnergyThreshold) {
         man->FillNtupleIColumn(0, 0, numEntries); // Number of entries
