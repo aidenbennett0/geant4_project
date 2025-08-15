@@ -34,7 +34,7 @@
 # /gps/pos/centre 0 0 4.3 cm 
 /gps/pos/centre 0 0 0 cm
 
-/vis/viewer/addCutawayPlane 0.1 0 0 mm -1 0 0
+#/vis/viewer/addCutawayPlane 0.1 0 0 mm -1 0 0
 #/vis/viewer/addCutawayPlane -0.1 0 0 mm 1 0 0 
 
 # Visualize Hits
