@@ -41,6 +41,7 @@ class materials {
      */
         G4NistManager *nist = G4NistManager::Instance();
 
+        // putting this in here to fix a problem
 };
 
 #endif
