@@ -39,9 +39,10 @@ void MyRunAction::BeginOfRunAction(const G4Run* run) {
     // While this isn't used, it could be added to an OpenFile string
     G4int runID = run->GetRunID();
     (void)runID; // To keep the compiler from having an issue with unused variables
+    man->SetFileName("output");
 
     man->OpenFile();
-
+ 
 }
 
 void MyRunAction::EndOfRunAction(const G4Run*) {
