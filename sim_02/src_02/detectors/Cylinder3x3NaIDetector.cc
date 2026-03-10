@@ -105,7 +105,7 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                       0,
                       copyNumber,
                       false);
-/*
+
     /**
      * @brief Construct the box to surround the particle source to prevent leak
      */
@@ -114,10 +114,11 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                                   boxX, 
                                   boxY, 
                                   boxZ);
-/*
+
     
-    // @brief Construct the reflector for the particle source box
-     
+    /**
+     * @brief Construct the reflector for the particle source box
+     */
     G4VSolid *sourceBoxReflector;
     sourceBoxReflector = new G4Box("sourceBoxReflector",
                                    boxX+sourceReflectorThickness, 
@@ -143,7 +144,7 @@ Cylinder3x3NaIDetector::Cylinder3x3NaIDetector(G4String name,
                       false,
                       copyNumber,
                       false);
-*/
+
 }
 
 /**

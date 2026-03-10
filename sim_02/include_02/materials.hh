@@ -35,6 +35,13 @@ class materials {
          */
         G4Material* Teflon();
 
+        /**
+         * @brief Lead, for big box
+         * 
+         * @return G4Material
+         */
+        G4Material* Pb();
+
     private:
     /**
      * @brief Creates an instance of the NIST database which is used to get material properties

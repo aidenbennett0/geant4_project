@@ -25,3 +25,9 @@ G4Material *materials::Teflon() {
     material = nist->FindOrBuildMaterial("G4_TEFLON");
     return material;
 }
+
+G4Material *materials::Pb() {
+    G4Material *material;
+    material = nist->FindOrBuildMaterial("G4_Pb");
+    return material;
+}
