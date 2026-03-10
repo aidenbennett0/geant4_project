@@ -60,8 +60,6 @@ DetectorConstruction::DetectorConstruction() {
      * @brief Select which detector to use
      * Additional options will be implemented over time
      * 
-     * @todo Fill out more
-     * 
      * Option 0 - 3x3 NaI
      */
 

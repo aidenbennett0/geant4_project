@@ -15,7 +15,7 @@ ConstructionMessenger::ConstructionMessenger(DetectorConstruction* detectorConst
     geometryOptionCmd = new G4UIcmdWithAnInteger("/construction/geometry",this);
     geometryOptionCmd->SetGuidance("Set which geometry option to use.");
     geometryOptionCmd->SetGuidance("Option 0 - Left empty for custom user construction");
-    geometryOptionCmd->SetGuidance("Option 1 - Lead box and Soil and Sun source");  // @todo might need to move build source command elsewhere
+    geometryOptionCmd->SetGuidance("Option 1 - Lead box");  // @todo might need to move build source command elsewhere
 
     geometryOptionCmd->SetParameterName("geometryOption", false); // Tells  G4 to take param "geometryOption" and sets isOptional to false
     geometryOptionCmd->SetDefaultValue(0);
@@ -23,6 +23,8 @@ ConstructionMessenger::ConstructionMessenger(DetectorConstruction* detectorConst
     detectorOptionCmd = new G4UIcmdWithAnInteger("/construction/detector/option", this);
     detectorOptionCmd->SetGuidance("Option -1 - No detector");
     detectorOptionCmd->SetGuidance("Option 0 - 3x3 NaI Detector");
+    detectorOptionCmd->SetGuidance("Option 1 - HPGe Detector");
+
     detectorOptionCmd->SetDefaultValue(-1);
 
     /**
