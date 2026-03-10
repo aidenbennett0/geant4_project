@@ -3,7 +3,9 @@
 
 /run/numberOfThreads 1 
 
+/construction/geometry 1
 /construction/detector/option 0
+
 
 /analysis/setFileName visualization
 

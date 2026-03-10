@@ -25,6 +25,9 @@
 // Messenger constructions
 #include "constructionMessenger.hh"
 
+// Lead shield construction
+#include "leadBoxShield.hh"
+
 class ConstructionMessenger;
 
 class DetectorConstruction : public G4VUserDetectorConstruction
@@ -80,6 +83,8 @@ class DetectorConstruction : public G4VUserDetectorConstruction
         ConstructionMessenger *messenger;
 
         Cylinder3x3NaIDetector *detectorConstructionNaI;
+
+        LeadBoxShield *shieldConstructionPb;
 };
 
 #endif

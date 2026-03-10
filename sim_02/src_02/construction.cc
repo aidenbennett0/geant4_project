@@ -27,11 +27,32 @@ DetectorConstruction::DetectorConstruction() {
      * @todo Fill out more
      * 
      * Option 0 - Left empty for custom user source construction
+     * Option 1 - Lead box and Soil and Sun source
      */
     if (geometryID == 0) {
 
         ConstructWorldVolume(0.5*m, 0.5*m, 0.5*m);
         
+    }
+
+    if (geometryID == 1) {
+        ConstructWorldVolume(0.5*m,0.5*m,0.5*m);
+
+        G4Transform3D orientation = G4Transform3D();
+        G4double width = 25*cm;
+        G4double length = 25*cm;
+        G4double height = 25*cm;
+        G4double wallThickness = 0.5*cm;
+
+        shieldConstructionPb = new LeadBoxShield("shieldConstructionPb",
+                                                    0,
+                                                    logicalWorld,
+                                                    orientation,
+                                                    width,
+                                                    length,
+                                                    height,
+                                                    wallThickness);
+
     }
 
     /** ---DETECTOR SELECTION---
@@ -47,7 +68,7 @@ DetectorConstruction::DetectorConstruction() {
      if (detectorID == 0) { // Construct 3x3 NaI Cylinder Detector
 
         // Detector transformation
-        detectorRotation = new G4RotationMatrix(); // @todo G4RotationMatrix should be yellow here and not green
+        detectorRotation = new G4RotationMatrix();
         detectorRotation->rotateX(0*deg);
 
         detectorConstructionNaI = new Cylinder3x3NaIDetector("detector",

@@ -20,7 +20,7 @@
 
 #include "materials.hh"
 
-class leadBoxShield {
+class LeadBoxShield {
 public:
 
        /**
@@ -37,7 +37,7 @@ public:
      */
 
     // Construct the lead box object
-     leadBoxShield(G4String name,
+     LeadBoxShield(G4String name,
         G4int copyNumber,
         G4LogicalVolume* motherLogical, 
         G4Transform3D orientation,
@@ -47,7 +47,12 @@ public:
         G4double wallThickness);
 
     // Deconstruct the lead box object
-    ~leadBoxShield();
+    ~LeadBoxShield();
+
+  private:
+ /**
+  * @todo move measurements (height, width, length) from construction.cc here
+  */
 };
 
 #endif

@@ -2,8 +2,6 @@
 
 /construction/detector/option 0
 
-/analysis/setFileName visualization
-
 /run/initialize
 
 /gps/particle ion
