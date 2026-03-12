@@ -58,6 +58,12 @@ class DetectiveXHPGe {
         /**
          * @todo put in variables (radius, height, etc.) here
          */
+        G4double radius = 6.35*cm;
+        G4double length = 12.7*cm;
+
+        G4LogicalVolume *detectorHPGeLogical;
+        materials detectorMaterialsInstance;
+
 };
 
 #endif

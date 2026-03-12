@@ -31,3 +31,9 @@ G4Material *materials::Pb() {
     material = nist->FindOrBuildMaterial("G4_Pb");
     return material;
 }
+
+G4Material *materials::Ge() {
+    G4Material *material;
+    material = nist->FindOrBuildMaterial("G4_Ge");
+    return material;
+}

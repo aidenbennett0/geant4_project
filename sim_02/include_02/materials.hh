@@ -42,6 +42,13 @@ class materials {
          */
         G4Material* Pb();
 
+        /**
+         * @brief Germanium.
+         * 
+         * @return G4Material*
+         */
+        G4Material* Ge();
+
     private:
     /**
      * @brief Creates an instance of the NIST database which is used to get material properties
