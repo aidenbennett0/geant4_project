@@ -61,7 +61,7 @@ class DetectiveXHPGe {
         G4double radius = 6.35*cm;
         G4double length = 12.7*cm;
 
-        G4LogicalVolume *detectorHPGeLogical;
+        G4LogicalVolume *diskHPGeLogical;
         materials detectorMaterialsInstance;
 
 };

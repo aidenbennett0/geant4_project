@@ -15,16 +15,16 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
     /**
      * @brief Construct the HPGe detector
      */
-    G4VSolid *detectorHPGe;
-    detectorHPGe = new G4Tubs("detectorHPGeSolid",
+    G4VSolid *diskHPGe;
+    diskHPGe = new G4Tubs("diskHPGeSolid",
                                 0,
                                 radius,
                                 length/2,
                                 0,
                                 2*pi);
 
-    detectorHPGeLogical = new G4LogicalVolume(detectorHPGe,
+    diskHPGeLogical = new G4LogicalVolume(diskHPGe,
                                                     detectorMaterialsInstance.Ge(),
                                                     name);
-    
+    G4VisAttributes *visualizationHPGe;
                                                 }
