@@ -48,6 +48,11 @@ class DetectorConstruction : public G4VUserDetectorConstruction
          */
         void SetDetectorOption(G4int value);
 
+        /**
+         * @brief Set the Source option
+         */
+        void SetSourceOption(G4int value);
+
 
     private:        
         /**
@@ -68,6 +73,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
         // Used for geometry options selection
         G4int geometryID = 0;
         G4int detectorID = 0;
+        G4int sourceID = 0;
 
         // Detector translation
         G4RotationMatrix* detectorRotation;

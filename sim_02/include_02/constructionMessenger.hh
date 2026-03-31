@@ -43,6 +43,7 @@ class ConstructionMessenger : public G4UImessenger {
         // commands for geometry option selection
         G4UIcmdWithAnInteger *geometryOptionCmd;
         G4UIcmdWithAnInteger *detectorOptionCmd;
+        G4UIcmdWithAnInteger *sourceOptionCmd;
 
         /**
          * @note There are additional messenger constructions here but it is for stuff I don't need. hehe

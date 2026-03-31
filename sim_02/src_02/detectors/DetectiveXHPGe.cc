@@ -7,7 +7,7 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
                                 G4ThreeVector orientationTrans) {
 
     G4int copyNumberTracker = copyNumber; // copy number incremented for each volume but copyNum is reserved for sensitive volume.
-    
+
     G4RotationMatrix *volumeRotation = new G4RotationMatrix(); // Creates identity matrix by default
     volumeRotation->isIdentity(); // Checks if this is an identity translation. Returns true if is.
     G4ThreeVector volumeTranslation(0*cm,0*cm,0*cm);
@@ -41,5 +41,33 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
                     copyNumber,
                     false);
 
-    
-                                                }
+    }
+
+/**
+ * @brief Returns the logical volume of th sensitive volume, to be used by G4RunManager
+ *
+ * @return G4LogicalVolume*
+ */
+G4LogicalVolume *DetectiveXHPGe::GetSDLogicalVolume() {
+
+    return diskHPGeLogical;
+}
+
+/**
+ * @brief Deconstructs the HPGe disk object
+ */
+DetectiveXHPGe::~DetectiveXHPGe() {}
+
+
+/**
+ * @brief Return the gaussian energy broadening parameters
+ * 
+ * @todo fix
+ *
+ * @return G4ThreeVector
+ 
+G4ThreeVector Cylinder3x3NaIDetector::GetGEBParameters() {
+
+    return GEBParameters;
+}
+    */

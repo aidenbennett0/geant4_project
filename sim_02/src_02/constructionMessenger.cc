@@ -27,9 +27,13 @@ ConstructionMessenger::ConstructionMessenger(DetectorConstruction* detectorConst
 
     detectorOptionCmd->SetDefaultValue(-1);
 
-    /**
-     * @todo Aerosol + Pendulum messenger construction following this point
-     */
+    sourceOptionCmd = new G4UIcmdWithAnInteger("/construction/source/option", this);
+    sourceOptionCmd->SetGuidance("Option -1 - No source");
+    sourceOptionCmd->SetGuidance("Option 0 - Sun source");
+    sourceOptionCmd->SetGuidance("Option 1 - Soil source");
+    sourceOptionCmd->SetGuidance("Option 2 - Soil and Sun Source");
+
+    sourceOptionCmd->SetDefaultValue(-1);
 }
 
 ConstructionMessenger::~ConstructionMessenger() {
@@ -50,6 +54,15 @@ void ConstructionMessenger::SetNewValue(G4UIcommand* command, G4String newValue)
     if (command == geometryOptionCmd) {
 
         construction->SetGeometryOption(geometryOptionCmd->GetNewIntValue(newValue));
+    }
+    
+    if (command == detectorOptionCmd){
 
+        construction->SetDetectorOption(detectorOptionCmd->GetNewIntValue(newValue));
+    }
+
+    if (command == sourceOptionCmd) {
+
+        construction->SetSourceOption(sourceOptionCmd->GetNewIntValue(newValue));
     }
 }

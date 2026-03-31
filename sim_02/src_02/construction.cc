@@ -27,7 +27,7 @@ DetectorConstruction::DetectorConstruction() {
      * @todo Fill out more
      * 
      * Option 0 - Left empty for custom user source construction
-     * Option 1 - Lead box and Soil and Sun source
+     * Option 1 - Lead box
      */
     if (geometryID == 0) {
 
@@ -127,6 +127,11 @@ void DetectorConstruction::SetGeometryOption(G4int value) {
 void DetectorConstruction::SetDetectorOption(G4int value) {
 
         detectorID = value;
+}
+
+void DetectorConstruction::SetSourceOption(G4int value) {
+
+        sourceID = value;
 }
 
 DetectorConstruction::~DetectorConstruction() {}
