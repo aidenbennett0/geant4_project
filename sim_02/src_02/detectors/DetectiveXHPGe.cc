@@ -13,7 +13,7 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
     G4ThreeVector volumeTranslation(0*cm,0*cm,0*cm);
 
     /**
-     * @brief Construct the HPGe detector
+     * @brief Construct the HPGe disk (JUST the disk)
      */
     G4VSolid *diskHPGe;
     diskHPGe = new G4Tubs("diskHPGeSolid",
@@ -26,5 +26,20 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
     diskHPGeLogical = new G4LogicalVolume(diskHPGe,
                                                     detectorMaterialsInstance.Ge(),
                                                     name);
-    G4VisAttributes *visualizationHPGe;
+
+    G4VisAttributes *visualizationHPGe = new G4VisAttributes();
+    visualizationHPGe->SetForceSolid(true);
+    visualizationHPGe->SetColor(G4Color::White());
+    diskHPGeLogical->SetVisAttributes(visualizationHPGe);
+
+    new G4PVPlacement(volumeRotation,
+                    volumeTranslation,
+                    diskHPGeLogical,
+                    "diskHPGe",
+                    diskHPGeLogical,
+                    0,
+                    copyNumber,
+                    false);
+
+    
                                                 }
