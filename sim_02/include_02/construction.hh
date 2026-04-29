@@ -17,6 +17,7 @@
 
 // Detector constructions
 #include "Cylinder3x3NaIDetector.hh"
+#include "DetectiveXHPGe.hh"
 
 // Sensitive detector and materials
 #include "sensitivedetector.hh"
@@ -89,6 +90,8 @@ class DetectorConstruction : public G4VUserDetectorConstruction
         ConstructionMessenger *messenger;
 
         Cylinder3x3NaIDetector *detectorConstructionNaI;
+
+        DetectiveXHPGe *detectorConstructionHPGe;
 
         LeadBoxShield *shieldConstructionPb;
 };

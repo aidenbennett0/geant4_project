@@ -60,9 +60,13 @@ class DetectiveXHPGe {
          */
         G4double radius = 6.35*cm;
         G4double length = 12.7*cm;
+        G4double reflectorThickness = 0.1*mm;
+        G4double caseThickness = 0.50*mm;
 
         G4LogicalVolume *diskHPGeLogical;
         materials detectorMaterialsInstance;
+
+        G4ThreeVector GEBParameters = G4ThreeVector(-1.14001e+01, 2.36321e+00 , 5.22111e-05);
 
 };
 

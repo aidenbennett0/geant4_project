@@ -23,7 +23,7 @@
 class LeadBoxShield {
 public:
 
-       /**
+    /**
      * @brief Construct a new lead box shield with empty bottom object
      * 
      * @param name name of object

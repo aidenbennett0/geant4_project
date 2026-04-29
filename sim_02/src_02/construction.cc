@@ -27,7 +27,7 @@ DetectorConstruction::DetectorConstruction() {
      * @todo Fill out more
      * 
      * Option 0 - Left empty for custom user source construction
-     * Option 1 - Lead box
+     * Option 1 - Lead box inside large globe to be used as source
      */
     if (geometryID == 0) {
 
@@ -61,6 +61,7 @@ DetectorConstruction::DetectorConstruction() {
      * Additional options will be implemented over time
      * 
      * Option 0 - 3x3 NaI
+     * Option 1 - HPGe Disk
      */
 
      if (detectorID == 0) { // Construct 3x3 NaI Cylinder Detector
@@ -74,6 +75,20 @@ DetectorConstruction::DetectorConstruction() {
                                                             100,
                                                             detectorRotation,
                                                             detectorTranslation);
+    }
+
+    /**
+     * @brief Construct HPGe detector
+     */
+    if (detectorID == 1) {
+        detectorRotation = new G4RotationMatrix();
+        detectorRotation->rotateX(90*deg);
+
+        detectorConstructionHPGe = new DetectiveXHPGe("detector",
+                                            logicalWorld,
+                                            100,
+                                            detectorRotation,
+                                            detectorTranslation);
     }
     // End the timing of how long it took to close geometry
     auto end = std::chrono::high_resolution_clock::now();
@@ -103,6 +118,15 @@ DetectorConstruction::DetectorConstruction() {
         // Set logical volume as sensitive volume, method from G4LogicalVolume class
         SetSensitiveDetector(detectorConstructionNaI->GetSDLogicalVolume(), sensitiveDetector);
 
+    }
+
+    if (detectorID == 1) { //HPGe sensitive detector
+
+        // Add sensitive detector to sensitive detector manager
+        G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
+
+        // Set logical volume as sensitive volume, method from G4LogicalVolume class
+        SetSensitiveDetector(detectorConstructionHPGe->GetSDLogicalVolume(), sensitiveDetector);
     }
 }
 
