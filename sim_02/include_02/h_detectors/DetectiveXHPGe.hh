@@ -21,7 +21,7 @@
 class DetectiveXHPGe {
     public:
 /**
-         * @brief Creates a new Cylinder Detector (NaI) object
+         * @brief Creates a new HPGe Detector  object
          * 
          * @param name name of the sensitive volume
          * @param radius radius of detector
@@ -56,14 +56,14 @@ class DetectiveXHPGe {
 
     private:
         /**
-         * @todo put in variables (radius, height, etc.) here
+         * 
          */
-        G4double radius = 6.35*cm;
-        G4double length = 12.7*cm;
-        G4double reflectorThickness = 0.1*mm;
-        G4double caseThickness = 0.50*mm;
+        G4double radius = 32.5*mm;
+        G4double length = 50*mm;
+        G4double caseThickness = 0.1*mm; // Placeholder value
+        G4double reflectorThickness = 0.5*mm; // Placeholder value
 
-        G4LogicalVolume *diskHPGeLogical;
+        G4LogicalVolume *detectorHPGeLogical;
         materials detectorMaterialsInstance;
 
         G4ThreeVector GEBParameters = G4ThreeVector(-1.14001e+01, 2.36321e+00 , 5.22111e-05);

@@ -62,7 +62,7 @@
  }
 
  /**
- * @brief Destroy the Steelbox Shield:: Steelbox Shield object
+ * @brief Destroy the leadBox Shield:: leadBox Shield object
  * 
  */
 LeadBoxShield::~LeadBoxShield() {

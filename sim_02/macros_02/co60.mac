@@ -1,6 +1,7 @@
 /run/numberOfThreads 60
 
-/construction/detector/option 0
+/construction/geometry/option 0
+/construction/detector/option 1
 
 /run/initialize
 
