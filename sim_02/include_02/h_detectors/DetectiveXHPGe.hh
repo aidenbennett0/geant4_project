@@ -62,6 +62,12 @@ class DetectiveXHPGe {
         G4double length = 50*mm;
         G4double caseThickness = 0.1*mm; // Placeholder value
         G4double reflectorThickness = 0.5*mm; // Placeholder value
+        
+        // These values are for the construction of the source box and will not be used outside of testing
+        G4double boxX = 1*cm;
+        G4double boxY = 1*cm;
+        G4double boxZ = 1*cm;
+        G4double sourceReflectorThickness = 0.1*mm;
 
         G4LogicalVolume *detectorHPGeLogical;
         materials detectorMaterialsInstance;

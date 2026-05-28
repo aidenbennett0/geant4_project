@@ -122,9 +122,7 @@ DetectorConstruction::DetectorConstruction() {
 
     if (detectorID == 1) { //HPGe sensitive detector
 
-        /**
-         * @note Assigning GEB parameters has been left out of this bit
-         */
+        sensitiveDetector->SetGEBParameters(detectorConstructionHPGe->GetGEBParameters());
         
         // Add sensitive detector to sensitive detector manager
         G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
