@@ -12,7 +12,9 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
     volumeRotation->isIdentity(); // Checks if this is an identity translation. Returns true if is.
     G4ThreeVector volumeTranslation(0*cm,0*cm,0*cm);
 
-
+    /**
+     * @brief Construct the detector casing
+     */
     G4VSolid *detectorCasing;
     detectorCasing = new G4Tubs("detectorCasingSolid", 
                                 0*cm,            
@@ -28,7 +30,7 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
 
     G4VisAttributes *detectorVisualization = new G4VisAttributes();
     detectorVisualization->SetForceSolid(true);
-    detectorVisualization->SetColor(G4Color::Gray());
+    detectorVisualization->SetColor(G4Color::Brown());
     detectorCasingLogicalVolume->SetVisAttributes(detectorVisualization);
 
     new G4PVPlacement(orientationRot,
@@ -40,7 +42,9 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
                       copyNumberTracker++,
                       false);
 
-    // Setup reflector
+    /**
+     * @brief Construct the detector reflector
+     */
     G4VSolid *detectorReflector;
     detectorReflector = new G4Tubs("detectorReflectorSolid",
                                     0*cm,
@@ -95,7 +99,7 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
                     volumeTranslation,
                     detectorHPGeLogical,
                     "detectorHPGe",
-                    motherVolume,
+                    detectorReflectorLogical,
                     0,
                     copyNumber,
                     false);
