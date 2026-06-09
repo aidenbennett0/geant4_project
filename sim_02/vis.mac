@@ -27,12 +27,12 @@
 /vis/scene/add/scale 10 cm
 /vis/scene/add/eventID
 
-#/gps/particle gamma
-#/gps/energy 80 keV
+# /gps/particle gamma
+# /gps/energy 80 keV
 
-/gps/particle ion
-/gps/ion 27 60 0 0
-/gps/energy 0 keV
+ /gps/particle ion
+ /gps/ion 27 60 0 0
+ /gps/energy 0 keV
 
 /gps/pos/type Point
 /gps/ang/type iso

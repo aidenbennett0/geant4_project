@@ -1,13 +1,13 @@
-/run/numberOfThreads 60
+/run/numberOfThreads 20
 
-/construction/geometry/option 0
+/construction/geometry 0
 /construction/detector/option 1
 
 /run/initialize
 
 /gps/particle ion
 /gps/ion 27 60
-/gps/energy 80 keV
+/gps/energy 0 keV
 /gps/pos/type Point
 /gps/ang/type iso
 /gps/pos/centre 0 0 0 cm

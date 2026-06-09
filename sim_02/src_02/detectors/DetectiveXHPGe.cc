@@ -112,48 +112,8 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
                     0,
                     copyNumber,
                     false);
-
-    /**
-     * @brief Construct the box to surround the particle source to prevent leak
-     */
-    G4VSolid *sourceBox;
-    sourceBox = new G4Box("particleSourceBox", 
-                                  boxX, 
-                                  boxY, 
-                                  boxZ);
-
-    
-    /**
-     * @brief Construct the reflector for the particle source box
-     */
-    G4VSolid *sourceBoxReflector;
-    sourceBoxReflector = new G4Box("sourceBoxReflector",
-                                   boxX+sourceReflectorThickness, 
-                                   boxY+sourceReflectorThickness, 
-                                   boxZ+sourceReflectorThickness);
-
-    G4SubtractionSolid* sourceBoxSubtraction = new G4SubtractionSolid("sourceBoxSubtraction", sourceBoxReflector, sourceBox);
-
-    G4LogicalVolume *sourceBoxReflectorLogical;
-    sourceBoxReflectorLogical = new G4LogicalVolume(sourceBoxSubtraction, detectorMaterialsInstance.Teflon(), "sourceBoxReflectorLogical");
-
-    G4VisAttributes* sourceBoxReflectorVis = new G4VisAttributes();
-    //sourceBoxReflectorVis->SetForceWireframe(true);
-    sourceBoxReflectorVis->SetForceSolid(true);
-    sourceBoxReflectorVis->SetColor(G4Color::White());
-    sourceBoxReflectorLogical->SetVisAttributes(sourceBoxReflectorVis);
-
-    new G4PVPlacement(volumeRotation,
-                      sourceBoxTranslation,
-                      sourceBoxReflectorLogical,
-                      "sourceBoxReflector",
-                      motherVolume,
-                      false,
-                      copyNumber,
-                      false);
-
     }
-
+    
 /**
  * @brief Returns the logical volume of the sensitive volume, to be used by G4RunManager
  *
