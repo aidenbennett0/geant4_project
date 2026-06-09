@@ -18,7 +18,7 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
     volumeRotation->isIdentity(); // Checks if this is an identity translation. Returns true if is.
     G4ThreeVector volumeTranslation(0*cm,0*cm,0*cm);
 
-    G4ThreeVector sourceBoxTranslation(0, 0, 0); // The translation of the source box relative to the mother volume.
+    G4ThreeVector sourceBoxTranslation(0, 100, 0); // The translation of the source box relative to the mother volume.
     
     /**
      * @brief Construct the detector casing
@@ -38,6 +38,7 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
 
     G4VisAttributes *detectorVisualization = new G4VisAttributes();
     detectorVisualization->SetForceSolid(true);
+    //detectorVisualization->SetForceWireframe(true);
     detectorVisualization->SetColor(G4Color::Magenta());
     detectorCasingLogicalVolume->SetVisAttributes(detectorVisualization);
 
@@ -65,11 +66,12 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
     detectorReflectorLogical = new G4LogicalVolume(detectorReflector,
                                                     detectorMaterialsInstance.Teflon(),
                                                     "detectorReflectorLogical");
+
     G4VisAttributes *reflectorVisualization = new G4VisAttributes();
     reflectorVisualization->SetForceSolid(true);
+    //reflectorVisualization->SetForceWireframe(true);
     reflectorVisualization->SetColor(G4Color::Blue());
     detectorReflectorLogical->SetVisAttributes(reflectorVisualization);
-
 
     new G4PVPlacement(volumeRotation,
                       volumeTranslation,
@@ -97,9 +99,8 @@ DetectiveXHPGe::DetectiveXHPGe(G4String name,
                                                     name);
 
     G4VisAttributes *visualizationHPGe = new G4VisAttributes();
-    visualizationHPGe->SetForceSolid(true);
-    //visualizationHPGe->SetForceWireframe(true);
-
+    //visualizationHPGe->SetForceSolid(true);
+    visualizationHPGe->SetForceWireframe(true);
     visualizationHPGe->SetColor(G4Color::White());
     detectorHPGeLogical->SetVisAttributes(visualizationHPGe);
 

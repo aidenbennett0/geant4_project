@@ -27,18 +27,18 @@
 /vis/scene/add/scale 10 cm
 /vis/scene/add/eventID
 
-/gps/particle gamma
-/gps/energy 80 keV
+#/gps/particle gamma
+#/gps/energy 80 keV
 
-#/gps/particle ion
-#/gps/ion 27 60 0 0 
-#/gps/energy 0 keV
+/gps/particle ion
+/gps/ion 27 60 0 0
+/gps/energy 0 keV
+
 /gps/pos/type Point
 /gps/ang/type iso
-# /gps/pos/centre 0 0 4.3 cm 
-/gps/pos/centre 0 0 0
+/gps/pos/centre 0 0 0 # z = 4.3 cm for det 0
 
-#/vis/viewer/addCutawayPlane 0.1 0 0 mm -1 0 0
+/vis/viewer/addCutawayPlane 0.1 0 0 mm -1 0 0
 #/vis/viewer/addCutawayPlane -0.1 0 0 mm 1 0 0 
 
 # Visualize Hits
